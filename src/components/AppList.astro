@@ -1,0 +1,76 @@
+---
+import { Image } from 'astro:assets';
+import { localizePath, useTranslations, type Lang } from '../i18n/ui';
+import { getApps, slugOf } from '../lib/content';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const apps = await getApps(lang);
+---
+
+{
+  apps.length === 0 ? (
+    <p class="muted">{t('apps.empty')}</p>
+  ) : (
+    <div class="grid">
+      {apps.map((app) => (
+        <a href={localizePath(`/apps/${slugOf(app)}/`, lang)} class="card app-card">
+          <div class="app-card__header">
+            {app.data.icon && (
+              <Image src={app.data.icon} alt="" width={56} height={56} densities={[1, 2]} class="app-card__icon" />
+            )}
+            <div>
+              <span class="app-card__status">{t(`apps.status.${app.data.status}`)}</span>
+              <h3>{app.data.title}</h3>
+            </div>
+          </div>
+          <p class="muted">{app.data.description}</p>
+        </a>
+      ))}
+    </div>
+  )
+}
+
+<style>
+  .app-card {
+    color: inherit;
+    text-decoration: none;
+    transition: border-color 0.15s;
+  }
+  .app-card:hover {
+    border-color: var(--color-accent);
+  }
+  .app-card h3 {
+    margin: 0;
+    font-size: 1.125rem;
+  }
+  .app-card p {
+    margin: 0;
+  }
+  .app-card__header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+  }
+  .app-card__icon {
+    flex-shrink: 0;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 22%;
+  }
+  .app-card__status {
+    display: inline-block;
+    margin-bottom: 0.25rem;
+    padding: 0 0.625rem;
+    border-radius: 999px;
+    background: var(--color-accent-soft);
+    color: var(--color-accent);
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+</style>

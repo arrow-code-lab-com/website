@@ -1,0 +1,204 @@
+---
+// 日本語トップ（/）。英語トップはアプリ紹介のみのため EnHomePage.astro に分けている
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { contact, useTranslations } from '../i18n/ui';
+import AppList from './AppList.astro';
+
+const t = useTranslations('ja');
+
+// TODO: キャッチコピー・サービス説明の文言は未決（CLAUDE.md 参照）。仮の文言を入れている
+const copy = {
+  heroTitle: 'アイデアを、\n動くアプリへ。',
+  heroLead:
+    'Arrow Code Lab は、アプリケーションの開発・公開と、アプリ開発のご依頼、AI活用のご相談を承る個人事業です。',
+  servicesTitle: '提供しているサービス',
+  services: [
+    {
+      title: 'アプリ開発の受託',
+      body: 'Webアプリやスマートフォンアプリなど、ご要望に合わせたアプリケーションを開発します。企画段階からご相談いただけます。',
+    },
+    {
+      title: 'AI活用のご相談',
+      body: '業務にAIをどう取り入れるか、どのツールを選ぶかなど、AI活用に関するご相談を承ります。',
+    },
+    {
+      title: '自社アプリの開発・公開',
+      body: '日々の「あったらいいな」を形にしたアプリを開発し、公開しています。',
+    },
+  ],
+  appsTitle: '公開しているアプリ',
+  aboutTitle: 'Arrow Code Lab について',
+  aboutBody:
+    'Arrow Code Lab は、アプリケーション開発と AI 活用を軸に、副業として運営している個人事業です。小さな規模だからこそ、ご相談から開発・公開まで一貫して対応します。',
+  noticeTitle: 'ご依頼の前に',
+  noticeLead:
+    'Arrow Code Lab は副業として運営しています。対応できる時間に限りがあるため、以下をご理解いただいたうえでご相談ください。',
+  noticeItems: [
+    { title: '対応時間', body: '作業やご連絡への対応は、平日の夜と土日祝日に行います。' },
+    { title: 'ご返信の目安', body: 'お問い合わせには、3日以内にご返信します。' },
+    {
+      title: '打ち合わせ',
+      body: 'メールやチャットでのやり取りを基本とします。オンラインでの打ち合わせは、平日の夜または土日祝日に調整させてください。',
+    },
+  ],
+  noticeDeclineTitle: 'お受けできないご依頼',
+  noticeDecline: [
+    '平日日中の定例会議への参加や、常駐が必要なご依頼',
+    '納期が短いご依頼や、大規模な開発案件',
+    '24時間の障害対応や、即時の対応が必要な保守',
+    '医療ソフトウェアに関するご依頼（本業と競合するため）',
+  ],
+  flowTitle: 'ご依頼の流れ',
+  flow: [
+    { title: 'お問い合わせ', body: 'フォームまたはメールでご連絡ください。' },
+    { title: 'ヒアリング', body: '実現したいことや課題をお伺いします。' },
+    { title: 'お見積もり・ご契約', body: '内容に応じて個別にお見積もりします。' },
+    { title: '開発・ご相談対応', body: '進捗を共有しながら進めます。' },
+    { title: '納品・サポート', body: '納品後の運用についてもご相談ください。' },
+  ],
+  flowNote: '料金は内容に応じて個別にお見積もりします。まずはお気軽にご相談ください。',
+  contactTitle: 'お問い合わせ',
+  contactBody:
+    'アプリ開発のご依頼、AI活用のご相談、アプリに関するお問い合わせは、フォームまたはメールでご連絡ください。3日以内にご返信します。',
+  contactForm: 'お問い合わせフォーム',
+};
+---
+
+<BaseLayout>
+  <section class="hero">
+    <div class="container">
+      <h1 class="hero__title">{copy.heroTitle}</h1>
+      <p class="hero__lead">{copy.heroLead}</p>
+      <a href="#contact" class="button">{t('cta.contact')} →</a>
+    </div>
+  </section>
+
+  <section id="services" class="section section--alt">
+    <div class="container">
+      <p class="section-label">Services</p>
+      <h2 class="section-title">{copy.servicesTitle}</h2>
+      <div class="grid">
+        {
+          copy.services.map((service) => (
+            <div class="card">
+              <h3>{service.title}</h3>
+              <p class="muted">{service.body}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section id="apps" class="section">
+    <div class="container">
+      <p class="section-label">Apps</p>
+      <h2 class="section-title">{copy.appsTitle}</h2>
+      <AppList lang="ja" />
+    </div>
+  </section>
+
+  <section id="about" class="section section--alt">
+    <div class="container">
+      <p class="section-label">About</p>
+      <h2 class="section-title">{copy.aboutTitle}</h2>
+      <!-- TODO: 得意な技術・スキルを追記する -->
+      <p>{copy.aboutBody}</p>
+    </div>
+  </section>
+
+  <section id="flow" class="section">
+    <div class="container">
+      <p class="section-label">Flow</p>
+      <h2 class="section-title">{copy.flowTitle}</h2>
+      <ol class="flow">
+        {
+          copy.flow.map((step) => (
+            <li class="flow__step">
+              <h3>{step.title}</h3>
+              <p class="muted">{step.body}</p>
+            </li>
+          ))
+        }
+      </ol>
+      <p>{copy.flowNote}</p>
+    </div>
+  </section>
+
+  <section id="notice" class="section section--alt">
+    <div class="container">
+      <p class="section-label">Notice</p>
+      <h2 class="section-title">{copy.noticeTitle}</h2>
+      <p>{copy.noticeLead}</p>
+      <div class="grid notice">
+        {
+          copy.noticeItems.map((item) => (
+            <div class="card">
+              <h3>{item.title}</h3>
+              <p class="muted">{item.body}</p>
+            </div>
+          ))
+        }
+      </div>
+      <h3 class="notice__decline-title">{copy.noticeDeclineTitle}</h3>
+      <ul class="notice__decline">
+        {copy.noticeDecline.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="container contact">
+      <p class="section-label">Contact</p>
+      <h2 class="section-title">{copy.contactTitle}</h2>
+      <p>{copy.contactBody}</p>
+      <p>
+        <a href={contact.formUrl} class="button" target="_blank" rel="noopener">{copy.contactForm} →</a>
+      </p>
+      <p class="muted">Email: <a href={`mailto:${contact.email}`}>{contact.email}</a></p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .card h3,
+  .flow__step h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.125rem;
+  }
+  .card p,
+  .flow__step p {
+    margin: 0;
+  }
+  .flow {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+    padding: 0;
+    margin: 0 0 2rem;
+    list-style: none;
+    counter-reset: step;
+  }
+  .flow__step {
+    counter-increment: step;
+    border-top: 2px solid var(--color-accent);
+    padding-top: 1rem;
+  }
+  .flow__step::before {
+    content: counter(step, decimal-leading-zero);
+    font-family: var(--font-mono);
+    color: var(--color-accent);
+    font-size: 0.875rem;
+  }
+  .notice {
+    margin-block: 2rem;
+  }
+  .notice__decline-title {
+    margin: 0 0 0.75rem;
+    font-size: 1.125rem;
+  }
+  .notice__decline {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+</style>

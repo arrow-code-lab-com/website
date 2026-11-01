@@ -1,0 +1,35 @@
+---
+// 英語トップ（/en/）。英語圏では受託開発・AI相談を受け付けないため、アプリ紹介のみを載せる
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { contact } from '../i18n/ui';
+import AppList from './AppList.astro';
+---
+
+<BaseLayout>
+  <section class="hero">
+    <div class="container">
+      <h1 class="hero__title">{'Apps for\neveryday needs.'}</h1>
+      <p class="hero__lead">
+        Arrow Code Lab is an independent developer based in Japan that builds and publishes apps.
+      </p>
+      <a href="#apps" class="button">See our apps →</a>
+    </div>
+  </section>
+
+  <section id="apps" class="section section--alt">
+    <div class="container">
+      <p class="section-label">Apps</p>
+      <h2 class="section-title">Our apps</h2>
+      <AppList lang="en" />
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="container contact">
+      <p class="section-label">Contact</p>
+      <h2 class="section-title">Contact</h2>
+      <p>For questions about our apps, please send us an email. We reply within 3 days.</p>
+      <p class="muted">Email: <a href={`mailto:${contact.email}`}>{contact.email}</a></p>
+    </div>
+  </section>
+</BaseLayout>

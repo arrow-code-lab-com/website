@@ -1,0 +1,150 @@
+---
+import { Image } from 'astro:assets';
+import { render, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { localizePath, useTranslations, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  app: CollectionEntry<'apps'>;
+}
+
+const { lang, app } = Astro.props;
+const t = useTranslations(lang);
+const { Content } = await render(app);
+const { title, description, icon, screenshots, status, platforms, links, legal } = app.data;
+
+const linkLabels = {
+  web: lang === 'ja' ? 'Webで開く' : 'Open on the web',
+  appStore: 'App Store',
+  googlePlay: 'Google Play',
+  github: 'GitHub',
+} as const;
+const linkEntries = (Object.keys(linkLabels) as (keyof typeof linkLabels)[])
+  .filter((key) => links[key])
+  .map((key) => ({ label: linkLabels[key], href: links[key]! }));
+
+const legalLabels = {
+  privacy: lang === 'ja' ? 'プライバシーポリシー' : 'Privacy Policy',
+  terms: lang === 'ja' ? '利用規約' : 'Terms of Use',
+  tokushoho: lang === 'ja' ? '特定商取引法に基づく表記' : 'Legal Notice (Japanese)',
+} as const;
+const legalEntries = (Object.keys(legalLabels) as (keyof typeof legalLabels)[])
+  .filter((key) => legal[key])
+  .map((key) => ({ label: legalLabels[key], href: legal[key]! }));
+---
+
+<BaseLayout title={title} description={description}>
+  <article class="container section prose">
+    <p class="section-label">{t(`apps.status.${status}`)}{platforms.length > 0 && ` / ${platforms.join(', ')}`}</p>
+    <div class="app-header">
+      {icon && <Image src={icon} alt="" width={96} height={96} class="app-icon" />}
+      <h1>{title}</h1>
+    </div>
+    <p class="muted">{description}</p>
+    {
+      linkEntries.length > 0 && (
+        <p class="links">
+          {linkEntries.map((link) => (
+            <a href={link.href} class="button" target="_blank" rel="noopener">
+              {link.label}
+            </a>
+          ))}
+        </p>
+      )
+    }
+    {
+      screenshots.length > 0 && (
+        <ul class="screenshots">
+          {screenshots.map((shot) => (
+            <li>
+              <figure>
+                <Image src={shot.src} alt={shot.caption} width={240} densities={[1, 2]} loading="lazy" />
+                <figcaption>{shot.caption}</figcaption>
+              </figure>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+    <Content />
+    {
+      legalEntries.length > 0 && (
+        <ul class="legal">
+          {legalEntries.map((link) => (
+            <li>
+              <a href={link.href} target="_blank" rel="noopener">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+    <p><a href={localizePath('/#apps', lang)}>← {t('apps.back')}</a></p>
+  </article>
+</BaseLayout>
+
+<style>
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .app-header {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+  .app-header h1 {
+    margin: 0;
+  }
+  .app-icon {
+    flex-shrink: 0;
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 22%;
+    box-shadow: 0 1px 3px rgb(15 23 42 / 0.15);
+  }
+  /* プロース幅より広く横スクロールで見せる */
+  .screenshots {
+    display: flex;
+    gap: 1rem;
+    margin: 2rem 0;
+    padding: 0 0 1rem;
+    list-style: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+  }
+  .screenshots li {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+  }
+  .screenshots figure {
+    margin: 0;
+    width: 12rem;
+  }
+  .screenshots img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+  }
+  .screenshots figcaption {
+    margin-top: 0.5rem;
+    font-size: 0.8125rem;
+    color: var(--color-muted);
+    text-align: center;
+  }
+  .legal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    margin-top: 2.5rem;
+    padding: 1rem 0 0;
+    border-top: 1px solid var(--color-border);
+    list-style: none;
+    font-size: 0.875rem;
+  }
+</style>

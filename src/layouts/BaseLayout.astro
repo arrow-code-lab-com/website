@@ -1,0 +1,56 @@
+---
+import '../styles/global.css';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { getLangFromUrl, switchLangPath, useTranslations } from '../i18n/ui';
+
+interface Props {
+  title?: string;
+  description?: string;
+  /** 言語切り替え先のパス。対応する別言語ページがない場合に指定する（hreflang も出力しない） */
+  altPath?: string;
+}
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const { title, description = t('site.description'), altPath } = Astro.props;
+const fullTitle = title ? `${title} | Arrow Code Lab` : 'Arrow Code Lab';
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const jaUrl = new URL(switchLangPath(Astro.url.pathname, 'ja'), Astro.site);
+const enUrl = new URL(switchLangPath(Astro.url.pathname, 'en'), Astro.site);
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {
+      !altPath && (
+        <>
+          <link rel="alternate" hreflang="ja" href={jaUrl} />
+          <link rel="alternate" hreflang="en" href={enUrl} />
+          <link rel="alternate" hreflang="x-default" href={jaUrl} />
+        </>
+      )
+    }
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Arrow Code Lab" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={lang === 'ja' ? 'ja_JP' : 'en_US'} />
+    <meta name="generator" content={Astro.generator} />
+  </head>
+  <body>
+    <Header altPath={altPath} />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
