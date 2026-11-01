@@ -1,0 +1,13 @@
+---
+import AppDetail from '../../components/AppDetail.astro';
+import { getApps, slugOf } from '../../lib/content';
+
+export async function getStaticPaths() {
+  const entries = await getApps('ja');
+  return entries.map((app) => ({ params: { slug: slugOf(app) }, props: { app } }));
+}
+
+const { app } = Astro.props;
+---
+
+<AppDetail lang="ja" app={app} />

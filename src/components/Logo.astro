@@ -1,0 +1,32 @@
+---
+// TODO: ロゴは未決（CLAUDE.md 参照）。決まるまでは矢印マーク＋屋号のテキストで表示する
+---
+
+<span class="logo">
+  <svg class="logo__mark" viewBox="0 0 32 32" aria-hidden="true">
+    <rect width="32" height="32" rx="7" fill="currentColor"></rect>
+    <path
+      d="M9 16h13M17 10l6 6-6 6"
+      fill="none"
+      stroke="#fff"
+      stroke-width="3"
+      stroke-linecap="round"
+      stroke-linejoin="round"></path>
+  </svg>
+  <span class="logo__text">Arrow Code Lab</span>
+</span>
+
+<style>
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  .logo__mark {
+    width: 1.75rem;
+    height: 1.75rem;
+    color: var(--color-accent);
+  }
+</style>

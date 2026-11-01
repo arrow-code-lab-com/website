@@ -1,0 +1,43 @@
+---
+import { getLangFromUrl, localizePath, useTranslations } from '../i18n/ui';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <nav class="footer__nav" aria-label="Footer">
+      <a href={localizePath('/privacy/', lang)}>{t('footer.privacy')}</a>
+      {lang === 'ja' && <a href="/tokushoho/">{t('footer.tokushoho')}</a>}
+    </nav>
+    <p class="footer__copy">&copy; {year} Arrow Code Lab</p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    border-top: 1px solid var(--color-border);
+    padding-block: 2rem;
+    font-size: 0.875rem;
+    color: var(--color-muted);
+  }
+  .footer__inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .footer__nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+  }
+  .footer__nav a {
+    color: inherit;
+  }
+  .footer__copy {
+    margin: 0;
+  }
+</style>

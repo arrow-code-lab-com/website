@@ -1,0 +1,75 @@
+---
+import { getLangFromUrl, localizePath, switchLangPath, useTranslations } from '../i18n/ui';
+import Logo from './Logo.astro';
+
+interface Props {
+  altPath?: string;
+}
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const home = localizePath('/', lang);
+const otherLang = lang === 'ja' ? 'en' : 'ja';
+const { altPath = switchLangPath(Astro.url.pathname, otherLang) } = Astro.props;
+---
+
+<header class="header">
+  <div class="container header__inner">
+    <a href={home} class="header__logo" aria-label="Arrow Code Lab"><Logo /></a>
+    <nav class="header__nav" aria-label="Main">
+      {lang === 'ja' && <a href={`${home}#services`} class="header__link">{t('nav.services')}</a>}
+      <a href={`${home}#apps`} class="header__link">{t('nav.apps')}</a>
+      <a href={`${home}#contact`}>{t('nav.contact')}</a>
+      <a href={altPath} hreflang={otherLang} lang={otherLang} class="header__lang">
+        {otherLang === 'en' ? 'EN' : 'JA'}
+      </a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgb(255 255 255 / 0.9);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--color-border);
+  }
+  .header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    height: 4rem;
+  }
+  .header__logo {
+    color: inherit;
+    text-decoration: none;
+  }
+  .header__nav {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    font-size: 0.9375rem;
+  }
+  .header__nav a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .header__nav a:hover {
+    color: var(--color-accent);
+  }
+  .header__lang {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    padding: 0.125rem 0.625rem;
+  }
+  @media (max-width: 40rem) {
+    .header__link {
+      display: none;
+    }
+  }
+</style>
