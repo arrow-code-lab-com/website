@@ -1,31 +1,40 @@
 ---
 // 日本語トップ（/）。英語トップはアプリ紹介のみのため EnHomePage.astro に分けている
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { contact, useTranslations } from '../i18n/ui';
+import { contact } from '../i18n/ui';
 import AppList from './AppList.astro';
 
-const t = useTranslations('ja');
-
-// TODO: キャッチコピー・サービス説明の文言は未決（CLAUDE.md 参照）。仮の文言を入れている
 const copy = {
-  heroTitle: 'アイデアを、\n動くアプリへ。',
+  heroTitle: '業務の困りごとを、\nアプリとAIで解決します。',
   heroLead:
-    'Arrow Code Lab は、アプリケーションの開発・公開と、アプリ開発のご依頼、AI活用のご相談を承る個人事業です。',
-  servicesTitle: '提供しているサービス',
+    '紙やExcelで回している作業のアプリ化から、生成AIの取り入れ方のご相談まで。Arrow Code Lab は、アプリ開発のご依頼とAI活用のご相談を承る個人事業です。ご相談・お見積もりは無料です。',
+  heroCta: '無料で相談する',
+  heroSecondary: '対応できるご相談を見る',
+  servicesTitle: 'こんなご相談に対応できます',
+  servicesLead:
+    '要件がまとまっていない段階でも大丈夫です。小さなご依頼や、お話を聞くだけのご相談も承ります。',
+  servicesExamplesLabel: 'たとえば',
   services: [
     {
       title: 'アプリ開発の受託',
-      body: 'Webアプリやスマートフォンアプリなど、ご要望に合わせたアプリケーションを開発します。企画段階からご相談いただけます。',
+      body: 'Webアプリやスマートフォンアプリを、企画の段階から一緒に考えて開発します。',
+      examples: [
+        '紙やExcelで管理している記録を、スマホで入力できるようにしたい',
+        '毎回手作業で作っている書類を、自動で作れるようにしたい',
+        '社内やお店で使う、ちょっとしたツールがほしい',
+      ],
     },
     {
       title: 'AI活用のご相談',
-      body: '業務にAIをどう取り入れるか、どのツールを選ぶかなど、AI活用に関するご相談を承ります。',
-    },
-    {
-      title: '自社アプリの開発・公開',
-      body: '日々の「あったらいいな」を形にしたアプリを開発し、公開しています。',
+      body: 'ChatGPT や Claude、Copilot などの生成AIを、業務にどう取り入れるかを一緒に考えます。',
+      examples: [
+        'どの業務にAIを使えそうか整理したい',
+        'どのツールを選べばよいか、使い方も含めて相談したい',
+        'AIを組み込んだツールを作りたい',
+      ],
     },
   ],
+  servicesNote: 'ご相談・お見積もりは無料です。料金は内容に応じて個別にお見積もりします。',
   appsTitle: '公開しているアプリ',
   aboutTitle: 'Arrow Code Lab について',
   aboutBody:
@@ -69,7 +78,10 @@ const copy = {
     <div class="container">
       <h1 class="hero__title">{copy.heroTitle}</h1>
       <p class="hero__lead">{copy.heroLead}</p>
-      <a href="#contact" class="button">{t('cta.contact')} →</a>
+      <div class="hero__actions">
+        <a href={contact.formUrl} class="button" target="_blank" rel="noopener">{copy.heroCta} →</a>
+        <a href="#services" class="button button--outline">{copy.heroSecondary} ↓</a>
+      </div>
     </div>
   </section>
 
@@ -77,16 +89,22 @@ const copy = {
     <div class="container">
       <p class="section-label">Services</p>
       <h2 class="section-title">{copy.servicesTitle}</h2>
+      <p class="services__lead">{copy.servicesLead}</p>
       <div class="grid">
         {
           copy.services.map((service) => (
             <div class="card">
               <h3>{service.title}</h3>
               <p class="muted">{service.body}</p>
+              <p class="services__examples-label">{copy.servicesExamplesLabel}</p>
+              <ul class="services__examples">
+                {service.examples.map((example) => <li>{example}</li>)}
+              </ul>
             </div>
           ))
         }
       </div>
+      <p class="services__note">{copy.servicesNote}</p>
     </div>
   </section>
 
@@ -169,6 +187,23 @@ const copy = {
   .card p,
   .flow__step p {
     margin: 0;
+  }
+  .services__lead {
+    margin: -1rem 0 2rem;
+  }
+  .card .services__examples-label {
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-accent);
+  }
+  .services__examples {
+    margin: 0.25rem 0 0;
+    padding-left: 1.25rem;
+    font-size: 0.9375rem;
+  }
+  .services__note {
+    margin: 2rem 0 0;
   }
   .flow {
     display: grid;
