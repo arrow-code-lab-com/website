@@ -1,0 +1,15 @@
+node: review
+kind: checkpoint
+sha: 20ecac5081cbd4a2a722cf6ef8a9ba76814dc8de
+summary: 観点レビュー完了（指摘 0 件）
+phase: rules
+detail: |
+  範囲: re-review（271a047..20ecac5、review.html 2 行・CLAUDE.md 1 行）
+  quality: 該当なし（文言とパス文字列の置換のみ）
+  refactoring: 該当なし（ロジック変更なし）
+  security: 該当なし（絶対パスは除去済み。PR 全差分の追加行に C:\ / Users\yano を含む行なし）
+  performance: 該当なし（静的文書のみ）
+  error-handling: 該当なし（実行時処理なし）
+  conventions: 該当なし（CLAUDE.md の Services 記述が HomePage.astro の 2 本構成と一致）
+  test: 該当なし（テスト基盤なし・文書変更のみ）
+  計画整合: #6 解消（前回 Major done を現物で確認）/ #3・#4 decision・verification あり / #5 dirty・退避 ref なし

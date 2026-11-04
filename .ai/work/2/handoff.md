@@ -2,8 +2,8 @@
 issue: 2
 pr: 3
 flow: ai-default-medium
-status: review-running
-outcome: null
+status: review-success
+outcome: clean
 evidence:
   spec_status: draft
   has_issue: true
@@ -14,28 +14,29 @@ evidence:
   open_major: 0
   merged: false
   accepted: false
-passed: [triage, requirements, impl]
+passed: [triage, requirements, impl, review]
 attempts: { impl: 1, review: 1 }
 edges:
   triage->requirements: 1
   requirements->impl: 1
   impl->review: 2
   review->impl: 1
+  review->pr: 1
 artifacts:
   triage:
     - .ai/specs/spec-20261104-155900.md
   requirements:
     - .ai/specs/spec-20261104-155900.md
     - .ai/specs/assets/20261104-155900/review.html
-events: 26
+events: 28
 ---
 
 # Issue #2 の索引
 
 この索引は `events/` から機械的に生成される写しです。手で書き換えないでください（次の記録で上書きされます）。
 
-- 現在地: `review-running`
-- フロー: `ai-default-medium` / 通過: `triage` → `requirements` → `impl`
+- 現在地: `review-success`（outcome: clean）
+- フロー: `ai-default-medium` / 通過: `triage` → `requirements` → `impl` → `review`
 - open な指摘: 3 件（Major 以上 0 件）
 
 ## open な指摘
@@ -57,6 +58,7 @@ events: 26
 - impl → review
 - review ↩ impl（追跡物 .ai/specs/assets/20261104-155900/review.html にローカルの絶対パス（ユーザー名を含む）が入っており、公開リポジトリで漏れる（Major））
 - impl → review
+- review → pr
 
 ## 記録（判断・懸念・検証・環境・質問）
 

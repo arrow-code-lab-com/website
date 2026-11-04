@@ -1,0 +1,7 @@
+node: review
+kind: run
+status: success
+outcome: clean
+to: pr
+model: claude-opus
+summary: 再レビューで新規指摘 0 件、Major 解消を確認。Minor 3 件 open（PR 本文に列挙）
