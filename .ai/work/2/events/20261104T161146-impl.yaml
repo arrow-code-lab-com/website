@@ -1,0 +1,8 @@
+node: impl
+kind: run
+status: success
+outcome: 実装完了
+to: review
+sha: 271a047
+model: claude-opus-5-5
+summary: Hero の文言・2 ボタン化と Services の具体例化を実装（check・build 通過）
