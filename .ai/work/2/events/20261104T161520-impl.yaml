@@ -1,0 +1,6 @@
+node: impl
+kind: finding
+severity: Minor
+state: done
+ref: 20261104T161305-review.yaml
+summary: decision と verification の event を積んだ

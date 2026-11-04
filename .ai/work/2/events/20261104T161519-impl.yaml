@@ -1,0 +1,3 @@
+node: impl
+kind: verification
+summary: npm run check 0 errors / npm run build 成功（7 pages）。dist/index.html に新しい Hero 文言と副ボタンが出ていることを確認

@@ -1,0 +1,6 @@
+node: impl
+kind: finding
+severity: Minor
+state: done
+ref: 20261104T161304-review.yaml
+summary: CLAUDE.md の Services の構成を実装に合わせた（20ecac5）。キャッチコピーの未決事項は PR で確認してから外す

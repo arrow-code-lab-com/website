@@ -1,0 +1,6 @@
+node: impl
+kind: finding
+severity: Major
+state: done
+ref: 20261104T161253-review.yaml
+summary: 確認ページの meta と data-key をリポジトリ相対パスに置き換えた（53b3eba）。追跡ファイル全体でも絶対パスが無いことを確認

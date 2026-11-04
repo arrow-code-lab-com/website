@@ -1,0 +1,3 @@
+node: impl
+kind: decision
+summary: 想定依頼者は書き分けず『業務の困りごと』で括った。具体例は実績ではなく対応できるご相談の例として書いた。無料の記載は Hero と Services の両方に置いた（spec §8 の未解決事項。PR で確認する）
