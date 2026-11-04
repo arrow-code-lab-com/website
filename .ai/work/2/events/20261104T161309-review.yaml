@@ -1,0 +1,14 @@
+node: review
+kind: checkpoint
+sha: 271a047216933ffae65cb06901a2560801d44679
+summary: 観点レビュー完了（指摘 3 件）
+phase: rules
+detail: |
+  quality: 該当なし（copy の命名・構造は既存に沿い、ネスト浅い）
+  refactoring: 該当なし（重複ロジックなし。.button--outline は既存 .button の修飾で共通化済み）
+  security: 該当なし（target=_blank に rel=noopener あり、機密なし。絶対パス混入は計画整合 #6 で Major 1 件）
+  performance: 該当なし（静的な文言と CSS の追加のみ）
+  error-handling: 該当なし（実行時処理なし）
+  conventions: 指摘 1 件（CLAUDE.md の Services 構成・未決事項との食い違い Minor）
+  test: 該当なし（テスト基盤なし・文言変更のみ）
+  計画整合: #6 Major 1 件 / #3・#4 Minor 1 件

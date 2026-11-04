@@ -1,0 +1,8 @@
+node: review
+kind: finding
+severity: Minor
+at: .ai/work/2/events
+fix: impl で行った判断（spec §8 の 2 点への回答）を decision として積み、npm run check / npm run build の結果を verification として積む。
+state: open
+summary: decision / concern / verification の event が 1 件も積まれていない
+body: "Issue 2 の events には run 以外の kind が無い。impl は文言の選択（想定依頼者を書き分けない、具体例の選定、無料の記載を Hero と Services の両方に置く等、spec §8 の未解決事項に当たる判断）をしているが decision として残っていない。また check・build 通過は impl の summary にしか無く、kind: verification が無い。spec は draft で AC-n が未定義のため受入条件単位の検証漏れとは扱わない。"

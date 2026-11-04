@@ -1,0 +1,8 @@
+node: review
+kind: finding
+severity: Minor
+at: src/components/HomePage.astro:37
+fix: servicesNote から見積もりの文を外して flowNote に任せるか、無料・見積もりの文を copy の 1 つのキーにまとめて参照する。
+state: open
+summary: 「無料」と「個別にお見積もり」の文言が複数箇所に重複している
+body: "The 'free' message is written in three places (heroLead, heroCta, servicesNote). The second sentence of servicesNote repeats flowNote ('料金は内容に応じて個別にお見積もりします') word for word. 故障シナリオ: If the free-consultation policy or the estimate wording changes, three or four strings must be edited together. CLAUDE.md already warns that terms must be changed in every place they appear. Missing one leaves the page contradicting itself.（出典: /code-review）"

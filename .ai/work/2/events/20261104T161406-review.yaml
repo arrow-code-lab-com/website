@@ -1,0 +1,8 @@
+node: review
+kind: finding
+severity: Minor
+at: src/components/HomePage.astro:82
+fix: "spec FR-2 が主ボタンをフォーム直行と定めているため、#2 では変えない。#5（安心して問い合わせられる: Notice・Contact・並び順）で、フォームへの導線の近くにお受けできない依頼の要約を置くか、主ボタンを #contact 経由に戻すかを決める。深刻度は仕様どおりのため Minor。"
+state: open
+summary: Hero の主ボタンがフォームへ直行し、ご依頼の前に（Notice）を読まずに問い合わせられる
+body: "The main Hero button ('無料で相談する') now opens the Google Form directly in a new tab. The old button scrolled to #contact on the page, so visitors now skip the Notice section (side-business hours, 3-day reply, requests we don't accept). 故障シナリオ: A visitor with a rush job, a request for daytime meetings or on-site work, or a medical-software request clicks the first button and submits the form without ever seeing 'お受けできないご依頼'. That causes inquiries that will be declined, against CLAUDE.md's rule that the site makes the side-business terms clear to clients. The spec's own problem list also says the decline conditions appear too late, and this change makes that worse.（出典: /code-review）"

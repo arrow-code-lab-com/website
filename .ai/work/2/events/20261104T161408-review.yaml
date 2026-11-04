@@ -1,0 +1,8 @@
+node: review
+kind: finding
+severity: Minor
+at: src/components/HomePage.astro:192
+fix: 見出しとリードを包む要素を作るか、リードがあるときだけ見出しの下余白を詰める修飾クラスを付け、負のマージンをやめる。
+state: open
+summary: .services__lead が負のマージンで .section-title の余白を打ち消している
+body: ".services__lead uses a negative top margin (-1rem) to cancel the global .section-title bottom margin of 2rem. 故障シナリオ: If the .section-title margin in global.css changes (for example to 1rem), the lead text overlaps or sits against the heading. A scoped modifier on the title, or a heading-plus-lead wrapper, would avoid depending on the global value.（出典: /code-review）"

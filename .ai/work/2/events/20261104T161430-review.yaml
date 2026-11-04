@@ -1,0 +1,8 @@
+node: review
+kind: run
+status: revert
+outcome: findings
+revert_to: impl
+reason: 追跡物 .ai/specs/assets/20261104-155900/review.html にローカルの絶対パス（ユーザー名を含む）が入っており、公開リポジトリで漏れる（Major）
+model: claude-opus-4-8
+summary: Major 1 件（確認ページへの絶対パス混入）で impl へ戻す。Minor 5 件 open、concern 2 件

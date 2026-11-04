@@ -1,0 +1,6 @@
+node: review
+kind: concern
+at: src/i18n/ui.ts:25
+summary: cta.contact キーが未使用になった
+who: このファイルの変更を持つ Issue の担当者
+body: "The key 'cta.contact' (ja and en) is now unused. The only caller was the old Hero button in HomePage.astro, which this diff replaced with copy.heroCta. 故障シナリオ: Leftover keys in the shared dictionary suggest the CTA text is controlled there, so someone edits ui.ts and nothing on the site changes.（出典: /code-review・今回の差分の範囲外）"

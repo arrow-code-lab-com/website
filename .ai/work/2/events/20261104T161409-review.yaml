@@ -1,0 +1,6 @@
+node: review
+kind: concern
+at: src/i18n/ui.ts:17
+summary: site.description が新しい Hero の打ち出しと合っていない
+who: このファイルの変更を持つ Issue の担当者（#6 共有・検索で伝わる）
+body: "The default meta description ('site.description') still describes the business as 'アプリケーションの開発・公開、アプリ開発のご依頼、AI活用のご相談'. The new Hero wording dropped self-built apps from the services and leads with solving business problems. 故障シナリオ: Search results and social shares of / show the old positioning (app publishing first, no free consultation, no 'solve business problems'), which no longer matches the page shown after the click.（出典: /code-review・今回の差分の範囲外）"

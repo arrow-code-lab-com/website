@@ -1,0 +1,8 @@
+node: review
+kind: finding
+severity: Major
+at: .ai/specs/assets/20261104-155900/review.html:5
+fix: review.html の fak-review メタ（5 行目）と main の data-key（75 行目）をリポジトリ相対パス（.ai/specs/assets/20261104-155900）に置き換えてコミットし直す。生成元（review-page.js）が絶対パスを埋め込むなら、追跡ゾーンへ移す時点で相対化する。
+state: open
+summary: 追跡物の確認ページにローカルの絶対パス（ユーザー名を含む）が混入している
+body: "差分で追加された .ai/specs/assets/20261104-155900/review.html の 5 行目 meta name=fak-review の content と 75 行目 main の data-key に、作業 PC の絶対パス（C:/Users/yano/orca/workspaces/website/デザイン変更/.ai/specs/assets/20261104-155900、実物は区切りがバックスラッシュ）がそのまま書かれている。リポジトリは PUBLIC（gh repo view で確認）なので、マージすると PC のユーザー名（yano）とフォルダ構成が公開される。CLAUDE.md の「個人名を載せない」方針にも抵触しうる。計画との整合 #6（追跡物への絶対パスの混入）に該当。"

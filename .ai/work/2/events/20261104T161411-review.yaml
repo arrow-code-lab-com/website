@@ -1,0 +1,10 @@
+node: review
+kind: checkpoint
+sha: 271a047216933ffae65cb06901a2560801d44679
+summary: code-review 取り込み完了（指摘 7 件・採用 3・重複 2・範囲外 2）
+phase: code-review
+detail: |
+  実行: 実行した / target: PR #3 / effort: medium
+  手順 0 の差分ファイル一覧: 8 ファイル（gh pr diff 3 --name-only）
+  検算: 一覧内の file を持つ指摘 3 件 / 一覧外 4 件（CLAUDE.md 2・ui.ts 2）。一覧内 1 件以上のため正常
+  CLAUDE.md の 2 件は観点レビューの Minor（HomePage.astro:7、CLAUDE.md との食い違い）と同趣旨のため重複として落とした

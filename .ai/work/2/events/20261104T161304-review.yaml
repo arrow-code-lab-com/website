@@ -1,0 +1,8 @@
+node: review
+kind: finding
+severity: Minor
+at: src/components/HomePage.astro:7
+fix: CLAUDE.md の「初回公開の範囲」の Services 行を 2 本（受託／AI相談）＋自社アプリは Apps が担う、に直す。文言を PR で確定するなら未決事項にチェックを付け、確定しないなら HomePage.astro の TODO コメントを戻す。
+state: open
+summary: Services の構成と文言の扱いが CLAUDE.md と食い違ったまま
+body: 差分で Services から「自社アプリの開発・公開」を外し（FR-4）、「仮の文言」を示す TODO コメントも削除した。一方 CLAUDE.md は「初回公開の範囲」で Services を「アプリ開発の受託／AI活用の相談／自社アプリ」と書き、未決事項に「キャッチコピー、サービス説明の文言（現在は仮の文言）」を残している。spec §8 は「CLAUDE.md の未決事項は、この Issue で決まったら更新する」としているが、文言は PR で確認する段階のため、コード側だけ確定扱いになっている。
