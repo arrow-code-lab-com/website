@@ -2,8 +2,8 @@
 issue: 2
 pr: 3
 flow: ai-default-medium
-status: impl-success
-outcome: "実装完了"
+status: review-running
+outcome: null
 evidence:
   spec_status: draft
   has_issue: true
@@ -15,7 +15,7 @@ evidence:
   merged: false
   accepted: false
 passed: [triage, requirements, impl]
-attempts: { impl: 1 }
+attempts: { impl: 1, review: 1 }
 edges:
   triage->requirements: 1
   requirements->impl: 1
@@ -27,14 +27,14 @@ artifacts:
   requirements:
     - .ai/specs/spec-20261104-155900.md
     - .ai/specs/assets/20261104-155900/review.html
-events: 25
+events: 26
 ---
 
 # Issue #2 の索引
 
 この索引は `events/` から機械的に生成される写しです。手で書き換えないでください（次の記録で上書きされます）。
 
-- 現在地: `impl-success`（outcome: 実装完了）
+- 現在地: `review-running`
 - フロー: `ai-default-medium` / 通過: `triage` → `requirements` → `impl`
 - open な指摘: 3 件（Major 以上 0 件）
 
