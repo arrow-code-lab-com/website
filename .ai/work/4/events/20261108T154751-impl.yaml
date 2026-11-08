@@ -1,0 +1,8 @@
+node: impl
+kind: run
+status: success
+outcome: 実装完了
+to: review
+sha: 15c0217c8c17e031211be0dbce3ab03db69a71e3
+model: claude-opus-5-5
+summary: Apps を開発事例（画面・使った技術・担当範囲）として見せ、About に経歴・得意な技術・進め方を追加した。check/build 通過

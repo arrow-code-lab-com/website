@@ -1,8 +1,8 @@
 ---
 issue: 4
 flow: ai-default-medium
-status: impl-running
-outcome: null
+status: impl-success
+outcome: "実装完了"
 evidence:
   spec_status: none
   has_issue: true
@@ -13,15 +13,21 @@ evidence:
   open_major: 0
   merged: false
   accepted: false
-passed: []
+passed: [impl]
 attempts: {}
-events: 1
+edges:
+  impl->review: 1
+events: 2
 ---
 
 # Issue #4 の索引
 
 この索引は `events/` から機械的に生成される写しです。手で書き換えないでください（次の記録で上書きされます）。
 
-- 現在地: `impl-running`
-- フロー: `ai-default-medium` / 通過: なし
+- 現在地: `impl-success`（outcome: 実装完了）
+- フロー: `ai-default-medium` / 通過: `impl`
 - open な指摘: 0 件（Major 以上 0 件）
+
+## 直近の経路
+
+- impl → review
