@@ -69,6 +69,10 @@ img {
   margin: 0 0 2rem;
 }
 
+.section-lead {
+  margin: -1rem 0 2rem;
+}
+
 .button {
   display: inline-flex;
   align-items: center;
@@ -107,6 +111,26 @@ img {
 
 .muted {
   color: var(--color-muted);
+}
+
+/* 技術名などの短い語を並べる */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tags li {
+  padding: 0 0.625rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-bg);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 1.8;
 }
 
 /* トップページ（HomePage / EnHomePage）共通 */

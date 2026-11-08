@@ -13,6 +13,9 @@ const apps = defineCollection({
     screenshots: z.array(z.object({ src: image(), caption: z.string() })).default([]),
     status: z.enum(['released', 'development']),
     platforms: z.array(z.string()).default([]),
+    // 開発事例として見せるための情報（使った技術と、誰がどこまで担当したか）
+    tech: z.array(z.string()).default([]),
+    role: z.string().optional(),
     links: z
       .object({
         web: z.url().optional(),

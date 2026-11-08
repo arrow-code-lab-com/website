@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import { localizePath, useTranslations, type Lang } from '../i18n/ui';
 import { getApps, slugOf } from '../lib/content';
+import AppMeta from './AppMeta.astro';
 
 interface Props {
   lang: Lang;
@@ -29,6 +30,14 @@ const apps = await getApps(lang);
             </div>
           </div>
           <p class="muted">{app.data.description}</p>
+          {app.data.screenshots.length > 0 && (
+            <div class="app-card__shots">
+              {app.data.screenshots.slice(0, 3).map((shot) => (
+                <Image src={shot.src} alt="" width={120} densities={[1, 2]} loading="lazy" />
+              ))}
+            </div>
+          )}
+          <AppMeta lang={lang} tech={app.data.tech} role={app.data.role} />
         </a>
       ))}
     </div>
@@ -62,6 +71,19 @@ const apps = await getApps(lang);
     width: 3.5rem;
     height: 3.5rem;
     border-radius: 22%;
+  }
+  /* カードだけで画面の雰囲気が伝わるよう、先頭の数枚を並べる */
+  .app-card__shots {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1.25rem;
+  }
+  .app-card__shots img {
+    width: 7.5rem;
+    min-width: 0;
+    flex: 0 1 auto;
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
   }
   .app-card__status {
     display: inline-block;

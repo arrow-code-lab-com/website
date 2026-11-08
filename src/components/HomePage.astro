@@ -35,10 +35,44 @@ const copy = {
     },
   ],
   servicesNote: 'ご相談・お見積もりは無料です。料金は内容に応じて個別にお見積もりします。',
-  appsTitle: '公開しているアプリ',
+  appsTitle: '開発事例',
+  appsLead:
+    '自社で企画・開発しているアプリです。アイデアの整理から設計・開発、ストアでの公開の準備まで、1 人で担当しています。',
   aboutTitle: 'Arrow Code Lab について',
   aboutBody:
-    'Arrow Code Lab は、アプリケーション開発と AI 活用を軸に、副業として運営している個人事業です。小さな規模だからこそ、ご相談から開発・公開まで一貫して対応します。',
+    'Arrow Code Lab は、本業でもソフトウェア開発の仕事をしている現役の開発者が、副業として運営している個人事業です。ご相談から設計・開発・納品まで、1 人で一貫して担当します。',
+  aboutCareerTitle: '経歴',
+  aboutCareer: [
+    '医療系の業務システムの開発に 15 年携わっています（C#）。現在も本業で開発職として働いています。',
+    '前職は金融機関に勤めていました。簿記などの知識があり、お金や帳簿にかかわる業務の流れを踏まえてお話しできます。',
+    'Claude や Copilot などの生成AIを、日々の開発業務に取り入れています。',
+    '自社アプリ「入居前チェック（Room Check PDF）」を、企画から開発まで 1 人で手がけ、Google Play での公開に向けて準備しています。',
+  ],
+  aboutSkillsTitle: '得意な技術・分野',
+  aboutSkills: [
+    {
+      title: '業務システムの開発',
+      body: 'C# による業務アプリケーションの設計・開発。現場の業務の流れに合わせた画面やデータの扱いを考えるのが得意です。',
+    },
+    {
+      title: 'スマートフォンアプリ',
+      body: 'Flutter（Dart）による Android アプリの開発。',
+    },
+    {
+      title: '生成AIの活用',
+      body: 'Claude・Copilot を使った開発の効率化や、業務への取り入れ方の検討。',
+    },
+    {
+      title: '業務知識',
+      body: '現場の業務の流れを踏まえたシステムづくりの経験と、金融機関での実務経験（簿記など）。',
+    },
+  ],
+  aboutApproachTitle: '進め方',
+  aboutApproach: [
+    'ご相談の窓口から開発までを 1 人で担当するため、伝言による行き違いが起きにくくなります。',
+    '要件が固まっていなくても、実現したいことを伺いながら一緒に整理します。',
+    'やり取りはメールやチャットが基本です。進捗を共有しながら進めます。',
+  ],
   noticeTitle: 'ご依頼の前に',
   noticeLead:
     'Arrow Code Lab は副業として運営しています。対応できる時間に限りがあるため、以下をご理解いただいたうえでご相談ください。',
@@ -89,7 +123,7 @@ const copy = {
     <div class="container">
       <p class="section-label">Services</p>
       <h2 class="section-title">{copy.servicesTitle}</h2>
-      <p class="services__lead">{copy.servicesLead}</p>
+      <p class="section-lead">{copy.servicesLead}</p>
       <div class="grid">
         {
           copy.services.map((service) => (
@@ -112,6 +146,7 @@ const copy = {
     <div class="container">
       <p class="section-label">Apps</p>
       <h2 class="section-title">{copy.appsTitle}</h2>
+      <p class="section-lead">{copy.appsLead}</p>
       <AppList lang="ja" />
     </div>
   </section>
@@ -120,8 +155,26 @@ const copy = {
     <div class="container">
       <p class="section-label">About</p>
       <h2 class="section-title">{copy.aboutTitle}</h2>
-      <!-- TODO: 得意な技術・スキルを追記する -->
-      <p>{copy.aboutBody}</p>
+      <p class="section-lead">{copy.aboutBody}</p>
+      <h3 class="about__heading">{copy.aboutCareerTitle}</h3>
+      <ul class="about__list">
+        {copy.aboutCareer.map((item) => <li>{item}</li>)}
+      </ul>
+      <h3 class="about__heading">{copy.aboutSkillsTitle}</h3>
+      <div class="grid about__skills">
+        {
+          copy.aboutSkills.map((skill) => (
+            <div class="card">
+              <h4>{skill.title}</h4>
+              <p class="muted">{skill.body}</p>
+            </div>
+          ))
+        }
+      </div>
+      <h3 class="about__heading">{copy.aboutApproachTitle}</h3>
+      <ul class="about__list">
+        {copy.aboutApproach.map((item) => <li>{item}</li>)}
+      </ul>
     </div>
   </section>
 
@@ -180,6 +233,7 @@ const copy = {
 
 <style>
   .card h3,
+  .card h4,
   .flow__step h3 {
     margin: 0 0 0.5rem;
     font-size: 1.125rem;
@@ -187,9 +241,6 @@ const copy = {
   .card p,
   .flow__step p {
     margin: 0;
-  }
-  .services__lead {
-    margin: -1rem 0 2rem;
   }
   .card .services__examples-label {
     margin-top: 1rem;
@@ -224,6 +275,18 @@ const copy = {
     font-family: var(--font-mono);
     color: var(--color-accent);
     font-size: 0.875rem;
+  }
+  .about__heading {
+    margin: 2.5rem 0 1rem;
+    font-size: 1.125rem;
+  }
+  /* 4 枚が 3＋1 に割れないよう、広い画面でも 2 列にする */
+  .about__skills {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr));
+  }
+  .about__list {
+    margin: 0;
+    padding-left: 1.25rem;
   }
   .notice {
     margin-block: 2rem;

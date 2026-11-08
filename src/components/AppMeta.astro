@@ -1,0 +1,53 @@
+---
+// アプリのカード（AppList）と詳細（AppDetail）で共通の「使った技術・担当」
+import { useTranslations, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  tech: string[];
+  role?: string;
+}
+
+const { lang, tech, role } = Astro.props;
+const t = useTranslations(lang);
+---
+
+{
+  (tech.length > 0 || role) && (
+    <dl class="app-meta">
+      {tech.length > 0 && (
+        <>
+          <dt>{t('apps.tech')}</dt>
+          <dd>
+            <ul class="tags">
+              {tech.map((item) => <li>{item}</li>)}
+            </ul>
+          </dd>
+        </>
+      )}
+      {role && (
+        <>
+          <dt>{t('apps.role')}</dt>
+          <dd>{role}</dd>
+        </>
+      )}
+    </dl>
+  )
+}
+
+<style>
+  .app-meta {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.5rem 1rem;
+    margin: 1.25rem 0 0;
+    font-size: 0.875rem;
+  }
+  .app-meta dt {
+    font-weight: 600;
+    color: var(--color-accent);
+  }
+  .app-meta dd {
+    margin: 0;
+  }
+</style>

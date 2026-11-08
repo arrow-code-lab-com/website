@@ -37,8 +37,8 @@
 - トップページ（1ページ構成）
   - Hero: 屋号、キャッチコピー、問い合わせボタン
   - Services: アプリ開発の受託／AI活用の相談（それぞれ対応できるご相談の具体例を添える。自社アプリは Apps で紹介する）
-  - Apps: 自社アプリのカード一覧（詳細ページへのリンク）
-  - About: 屋号としての紹介、得意な技術・スキル
+  - Apps（見出しは「開発事例」）: 自社アプリのカード一覧。スクリーンショット・使った技術・担当範囲を見せ、詳細ページへリンクする
+  - About: 屋号としての紹介（本業でも現役の開発者であること）、経歴、得意な技術・分野、進め方。経歴は「医療系の業務システムの開発 15 年（C#）」「前職は金融機関（簿記など）」までにとどめ、規模・勤務先は書かない
   - Flow: 相談から納品までの流れ（料金は「個別見積もり」と書く）
   - Notice（ご依頼の前に）: 副業であること、対応時間、返信の目安、打ち合わせの方法、お受けできない依頼
   - Contact: Googleフォームへの導線と返信の目安
@@ -99,7 +99,7 @@ public/
 
 ## コンテンツの追加
 
-- アプリ: `src/content/apps/{ja,en}/room-check-pdf.md` を参考に、`ja/` と `en/` に同じファイル名で置く。`status` は `released`（公開中）/ `development`（公開予定）、並び順は `order`。ストアのリンクは `links`、アプリごとのポリシー類は `legal` に書く
+- アプリ: `src/content/apps/{ja,en}/room-check-pdf.md` を参考に、`ja/` と `en/` に同じファイル名で置く。`status` は `released`（公開中）/ `development`（公開予定）、並び順は `order`。ストアのリンクは `links`、アプリごとのポリシー類は `legal` に書く。開発事例として見せる使った技術は `tech`、担当範囲は `role` に書く（事実だけを書く）
 - アプリの画像: アイコンとスクリーンショットは `src/assets/apps/<slug>/`（スクリーンショットは `ja/` `en/` に分ける）に置き、frontmatter の `icon` / `screenshots` に Markdown からの相対パスで書く。ビルド時に WebP に変換・縮小される
   - RoomCheckPDF の画像は room-check-pdf リポジトリの `docs/play-store-assets` ブランチ `doc/play_store/` から持ってきたもの。ストア用の画像を撮り直したら、こちらも差し替える
 - `draft: true` のエントリは本番ビルドに含まれない（開発サーバーでは表示される）
@@ -126,7 +126,6 @@ public/
 ## 未決事項
 
 - [ ] キャッチコピー、サービス説明の文言（現在は仮の文言）
-- [ ] About に載せる得意な技術・スキル
 - [ ] アクセントカラー、ロゴ（現在は仮で青 `#2563eb` と矢印マーク）
 - [ ] 正規URLを apex（`arrow-code-lab.com`）にするか `www` にするか（仮決め: apex）
 - [ ] RoomCheckPDF を Google Play で公開したら、`status: released` にして `links.googlePlay` を追加する

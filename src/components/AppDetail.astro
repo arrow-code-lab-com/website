@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import { render, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { localizePath, useTranslations, type Lang } from '../i18n/ui';
+import AppMeta from './AppMeta.astro';
 
 interface Props {
   lang: Lang;
@@ -12,7 +13,7 @@ interface Props {
 const { lang, app } = Astro.props;
 const t = useTranslations(lang);
 const { Content } = await render(app);
-const { title, description, icon, screenshots, status, platforms, links, legal } = app.data;
+const { title, description, icon, screenshots, status, platforms, tech, role, links, legal } = app.data;
 
 const linkLabels = {
   web: lang === 'ja' ? 'Webで開く' : 'Open on the web',
@@ -42,6 +43,7 @@ const legalEntries = (Object.keys(legalLabels) as (keyof typeof legalLabels)[])
       <h1>{title}</h1>
     </div>
     <p class="muted">{description}</p>
+    <AppMeta lang={lang} tech={tech} role={role} />
     {
       linkEntries.length > 0 && (
         <p class="links">
