@@ -12,7 +12,7 @@ interface Props {
 const { lang, app } = Astro.props;
 const t = useTranslations(lang);
 const { Content } = await render(app);
-const { title, description, icon, screenshots, status, platforms, links, legal } = app.data;
+const { title, description, icon, screenshots, status, platforms, tech, role, links, legal } = app.data;
 
 const linkLabels = {
   web: lang === 'ja' ? 'Webで開く' : 'Open on the web',
@@ -42,6 +42,28 @@ const legalEntries = (Object.keys(legalLabels) as (keyof typeof legalLabels)[])
       <h1>{title}</h1>
     </div>
     <p class="muted">{description}</p>
+    {
+      (tech.length > 0 || role) && (
+        <dl class="meta">
+          {tech.length > 0 && (
+            <>
+              <dt>{t('apps.tech')}</dt>
+              <dd>
+                <ul class="tags">
+                  {tech.map((item) => <li>{item}</li>)}
+                </ul>
+              </dd>
+            </>
+          )}
+          {role && (
+            <>
+              <dt>{t('apps.role')}</dt>
+              <dd>{role}</dd>
+            </>
+          )}
+        </dl>
+      )
+    }
     {
       linkEntries.length > 0 && (
         <p class="links">
@@ -86,6 +108,19 @@ const legalEntries = (Object.keys(legalLabels) as (keyof typeof legalLabels)[])
 </BaseLayout>
 
 <style>
+  .meta {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.5rem 1.25rem;
+    font-size: 0.9375rem;
+  }
+  .meta dt {
+    font-weight: 600;
+    color: var(--color-accent);
+  }
+  .meta dd {
+    margin: 0;
+  }
   .links {
     display: flex;
     flex-wrap: wrap;

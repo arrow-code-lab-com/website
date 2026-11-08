@@ -15,6 +15,8 @@ screenshots:
   - { src: ../../../assets/apps/room-check-pdf/ja/8-settings.png, caption: 設定 }
 status: development # released（公開中） / development（公開予定）
 platforms: [Android]
+tech: [Flutter, Dart, Riverpod, Hive, PDF生成, アプリ内課金, AdMob]
+role: 企画から設計・開発・ストア公開まで 1 人で担当
 links: {}
 legal:
   privacy: https://arrow-code-lab.github.io/room-check-pdf-policy/

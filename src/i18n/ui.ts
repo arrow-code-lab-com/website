@@ -17,7 +17,7 @@ export const ui = {
     'site.description':
       'Arrow Code Lab は、アプリケーションの開発・公開、アプリ開発のご依頼、AI活用のご相談を承る個人事業です。',
     'nav.services': 'サービス',
-    'nav.apps': 'アプリ',
+    'nav.apps': '開発事例',
     'nav.about': 'About',
     'nav.contact': 'お問い合わせ',
     'footer.privacy': 'プライバシーポリシー',
@@ -26,6 +26,8 @@ export const ui = {
     'apps.empty': '現在準備中です。公開までしばらくお待ちください。',
     'apps.status.released': '公開中',
     'apps.status.development': '公開予定',
+    'apps.tech': '使った技術',
+    'apps.role': '担当',
     'apps.back': 'トップへ戻る',
   },
   en: {
@@ -41,6 +43,8 @@ export const ui = {
     'apps.empty': 'Coming soon.',
     'apps.status.released': 'Available',
     'apps.status.development': 'Coming soon',
+    'apps.tech': 'Built with',
+    'apps.role': 'Role',
     'apps.back': 'Back to home',
   },
 } as const;

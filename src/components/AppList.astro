@@ -29,6 +29,29 @@ const apps = await getApps(lang);
             </div>
           </div>
           <p class="muted">{app.data.description}</p>
+          {app.data.screenshots.length > 0 && (
+            <div class="app-card__shots">
+              {app.data.screenshots.slice(0, 3).map((shot) => (
+                <Image src={shot.src} alt={shot.caption} width={120} densities={[1, 2]} loading="lazy" />
+              ))}
+            </div>
+          )}
+          {app.data.tech.length > 0 && (
+            <dl class="app-card__meta">
+              <dt>{t('apps.tech')}</dt>
+              <dd>
+                <ul class="tags">
+                  {app.data.tech.map((item) => <li>{item}</li>)}
+                </ul>
+              </dd>
+              {app.data.role && (
+                <>
+                  <dt>{t('apps.role')}</dt>
+                  <dd>{app.data.role}</dd>
+                </>
+              )}
+            </dl>
+          )}
         </a>
       ))}
     </div>
@@ -62,6 +85,33 @@ const apps = await getApps(lang);
     width: 3.5rem;
     height: 3.5rem;
     border-radius: 22%;
+  }
+  /* カードだけで画面の雰囲気が伝わるよう、先頭の数枚を並べる */
+  .app-card__shots {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1.25rem;
+  }
+  .app-card__shots img {
+    width: 7.5rem;
+    min-width: 0;
+    flex: 0 1 auto;
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+  }
+  .app-card__meta {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.5rem 1rem;
+    margin: 1.25rem 0 0;
+    font-size: 0.875rem;
+  }
+  .app-card__meta dt {
+    font-weight: 600;
+    color: var(--color-accent);
+  }
+  .app-card__meta dd {
+    margin: 0;
   }
   .app-card__status {
     display: inline-block;
