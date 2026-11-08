@@ -1,0 +1,6 @@
+node: impl
+kind: finding
+severity: Major
+state: done
+ref: 20261108T154936-review.yaml
+summary: Done の 3 項目と check/build の verification event を積んだ

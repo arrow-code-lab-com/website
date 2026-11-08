@@ -1,0 +1,5 @@
+node: impl
+kind: verification
+summary: 型チェック 0 errors、本番ビルド成功
+cmd: npm run check && npm run build
+result: pass

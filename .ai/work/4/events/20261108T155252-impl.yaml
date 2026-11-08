@@ -1,0 +1,6 @@
+node: impl
+kind: finding
+severity: Minor
+state: done
+ref: 20261108T154938-review.yaml
+summary: 『GitHub Copilot』を確かめた範囲の『Copilot』に戻した

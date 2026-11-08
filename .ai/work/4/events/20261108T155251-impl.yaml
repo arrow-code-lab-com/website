@@ -1,0 +1,6 @@
+node: impl
+kind: finding
+severity: Minor
+state: done
+ref: 20261108T154937-review.yaml
+summary: 技術の出典と tech/role の日英の扱いを decision event として積んだ

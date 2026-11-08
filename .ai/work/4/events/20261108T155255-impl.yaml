@@ -1,0 +1,6 @@
+node: impl
+kind: finding
+severity: Minor
+state: done
+ref: 20261108T154941-review.yaml
+summary: スキルカードの見出しを h4 にした

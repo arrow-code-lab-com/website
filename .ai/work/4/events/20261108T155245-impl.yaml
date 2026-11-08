@@ -1,0 +1,3 @@
+node: impl
+kind: decision
+summary: tech / role をアプリの frontmatter に足し、日英の両方に書いた（アプリ詳細の日英を揃える方針のため）。英語カードにも出るが、アプリの紹介でありお受けする依頼の記載ではない

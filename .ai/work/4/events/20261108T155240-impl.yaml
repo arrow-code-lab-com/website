@@ -1,0 +1,5 @@
+node: impl
+kind: verification
+summary: "Done1: トップの Apps（開発事例）にスクリーンショット・使った技術・担当範囲が出る"
+cmd: npm run build && grep dist/index.html (開発事例/使った技術/Flutter/担当)
+result: pass

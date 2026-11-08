@@ -1,0 +1,6 @@
+node: impl
+kind: finding
+severity: Minor
+state: wontfix
+ref: 20261108T155045-review.yaml
+summary: spec §4 Q1 でユーザーが『医療と書く（規模は書かない）』と決めているため変えない。PR で再確認を依頼する

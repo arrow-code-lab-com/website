@@ -1,0 +1,6 @@
+node: impl
+kind: finding
+severity: Minor
+state: done
+ref: 20261108T154942-review.yaml
+summary: カード内スクリーンショットの alt を空にした

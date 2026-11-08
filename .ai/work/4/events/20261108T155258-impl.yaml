@@ -1,0 +1,6 @@
+node: impl
+kind: finding
+severity: Minor
+state: done
+ref: 20261108T155046-review.yaml
+summary: 『行き違いが起きにくくなります』に改めた

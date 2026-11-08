@@ -1,0 +1,5 @@
+node: impl
+kind: verification
+summary: "Done3: 勤務先・個人を特定できる記載なし（一致は tokushoho の『銀行振込』のみ）。英語トップに受託の文言なし"
+cmd: grep -rE '大学病院|株式会社|銀行|〒|電話番号形式' dist --include='*.html'
+result: pass

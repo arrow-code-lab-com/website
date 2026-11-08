@@ -1,0 +1,6 @@
+node: impl
+kind: finding
+severity: Minor
+state: done
+ref: 20261108T154939-review.yaml
+summary: 得意分野の『業務知識』から医療を外した。経歴としての記載は残した

@@ -1,0 +1,5 @@
+node: impl
+kind: verification
+summary: "Done2: About に経歴・得意な技術・分野・進め方が出る"
+cmd: grep dist/index.html (経歴/得意な技術・分野/進め方/15 年/金融機関/現役)
+result: pass

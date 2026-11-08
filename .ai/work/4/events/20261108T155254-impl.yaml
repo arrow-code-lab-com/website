@@ -1,0 +1,6 @@
+node: impl
+kind: finding
+severity: Minor
+state: done
+ref: 20261108T154940-review.yaml
+summary: AppMeta コンポーネントに共通化し、tech と role を独立に出すようにした

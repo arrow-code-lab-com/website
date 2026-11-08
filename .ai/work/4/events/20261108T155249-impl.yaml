@@ -1,0 +1,6 @@
+node: impl
+kind: finding
+severity: Major
+state: done
+ref: 20261108T154935-review.yaml
+summary: 担当範囲を『企画・設計・開発（Google Play で公開予定）』にし、About の経歴・スキル・Apps のリードからも公開済みの表現を除いた（3e…fix コミット）

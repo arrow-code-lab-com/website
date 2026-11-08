@@ -1,0 +1,8 @@
+node: impl
+kind: run
+status: success
+outcome: 実装完了
+to: review
+sha: 0c4d6fe97f14afc96cdccfc71b46103ae74a3c05
+model: claude-opus-5-5
+summary: レビュー指摘 11 件に対応（done 10 / wontfix 1）。公開前アプリの表現を修正、Done の verification を記録

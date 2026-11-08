@@ -1,0 +1,6 @@
+node: impl
+kind: finding
+severity: Minor
+state: done
+ref: 20261108T155047-review.yaml
+summary: .section-lead を global.css へ移した
