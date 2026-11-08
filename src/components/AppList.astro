@@ -33,7 +33,7 @@ const apps = await getApps(lang);
           {app.data.screenshots.length > 0 && (
             <div class="app-card__shots">
               {app.data.screenshots.slice(0, 3).map((shot) => (
-                <Image src={shot.src} alt={shot.caption} width={120} densities={[1, 2]} loading="lazy" />
+                <Image src={shot.src} alt="" width={120} densities={[1, 2]} loading="lazy" />
               ))}
             </div>
           )}
