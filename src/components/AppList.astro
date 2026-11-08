@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import { localizePath, useTranslations, type Lang } from '../i18n/ui';
 import { getApps, slugOf } from '../lib/content';
+import AppMeta from './AppMeta.astro';
 
 interface Props {
   lang: Lang;
@@ -36,22 +37,7 @@ const apps = await getApps(lang);
               ))}
             </div>
           )}
-          {app.data.tech.length > 0 && (
-            <dl class="app-card__meta">
-              <dt>{t('apps.tech')}</dt>
-              <dd>
-                <ul class="tags">
-                  {app.data.tech.map((item) => <li>{item}</li>)}
-                </ul>
-              </dd>
-              {app.data.role && (
-                <>
-                  <dt>{t('apps.role')}</dt>
-                  <dd>{app.data.role}</dd>
-                </>
-              )}
-            </dl>
-          )}
+          <AppMeta lang={lang} tech={app.data.tech} role={app.data.role} />
         </a>
       ))}
     </div>
@@ -98,20 +84,6 @@ const apps = await getApps(lang);
     flex: 0 1 auto;
     border: 1px solid var(--color-border);
     border-radius: 0.5rem;
-  }
-  .app-card__meta {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 0.5rem 1rem;
-    margin: 1.25rem 0 0;
-    font-size: 0.875rem;
-  }
-  .app-card__meta dt {
-    font-weight: 600;
-    color: var(--color-accent);
-  }
-  .app-card__meta dd {
-    margin: 0;
   }
   .app-card__status {
     display: inline-block;

@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import { render, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { localizePath, useTranslations, type Lang } from '../i18n/ui';
+import AppMeta from './AppMeta.astro';
 
 interface Props {
   lang: Lang;
@@ -42,28 +43,7 @@ const legalEntries = (Object.keys(legalLabels) as (keyof typeof legalLabels)[])
       <h1>{title}</h1>
     </div>
     <p class="muted">{description}</p>
-    {
-      (tech.length > 0 || role) && (
-        <dl class="meta">
-          {tech.length > 0 && (
-            <>
-              <dt>{t('apps.tech')}</dt>
-              <dd>
-                <ul class="tags">
-                  {tech.map((item) => <li>{item}</li>)}
-                </ul>
-              </dd>
-            </>
-          )}
-          {role && (
-            <>
-              <dt>{t('apps.role')}</dt>
-              <dd>{role}</dd>
-            </>
-          )}
-        </dl>
-      )
-    }
+    <AppMeta lang={lang} tech={tech} role={role} />
     {
       linkEntries.length > 0 && (
         <p class="links">
@@ -108,19 +88,6 @@ const legalEntries = (Object.keys(legalLabels) as (keyof typeof legalLabels)[])
 </BaseLayout>
 
 <style>
-  .meta {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 0.5rem 1.25rem;
-    font-size: 0.9375rem;
-  }
-  .meta dt {
-    font-weight: 600;
-    color: var(--color-accent);
-  }
-  .meta dd {
-    margin: 0;
-  }
   .links {
     display: flex;
     flex-wrap: wrap;
