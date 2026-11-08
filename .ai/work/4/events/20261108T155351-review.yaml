@@ -1,0 +1,8 @@
+node: review
+kind: finding
+severity: Minor
+at: CLAUDE.md:131
+fix: CLAUDE.md:131 の項目に「あわせて role（ja/en）・HomePage の appsLead・aboutCareer の公開予定の表現を公開済みに改める」を書き足す
+state: open
+summary: 公開前に合わせた文言（担当範囲・経歴・Apps のリード）を、公開時に戻すことが未決事項に書かれていない
+body: "今回の修正で RoomCheckPDF の role を「企画・設計・開発を 1 人で担当（Google Play で公開予定）」（ja:19 / en:17 \"coming soon to Google Play\"）、HomePage.astro:40 の appsLead を「ストアでの公開の準備まで」、HomePage.astro:49 の aboutCareer を「Google Play での公開に向けて準備しています」にした。一方 CLAUDE.md:131 の未決事項は「RoomCheckPDF を Google Play で公開したら、status: released にして links.googlePlay を追加する」だけで、これらの文言には触れていない。故障シナリオ: 公開時にこの項目どおり status と links だけ直すと、カードに「公開中」バッジと「Google Play で公開予定」の担当範囲が並び、前回の Major（公開状態と文言の矛盾）が逆向きに再発する。"

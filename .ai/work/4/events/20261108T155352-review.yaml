@@ -1,0 +1,15 @@
+node: review
+kind: checkpoint
+sha: 0c4d6fe97f14afc96cdccfc71b46103ae74a3c05
+summary: 観点レビュー完了（指摘 1 件）
+phase: rules
+detail: |
+  範囲: re-review（15c0217..0c4d6fe、8 コミット・7 ファイル）
+  quality: 該当なし（h4 化と .card h4 のスタイル追加、AppMeta の命名・コメントとも明確）
+  refactoring: 該当なし（tech/role の表示を AppMeta に共通化し条件も揃った。.tags は global.css にあり子コンポーネントでも効く）
+  security: 該当なし（秘密情報・入力処理なし。個人名・勤務先の追加記載なし）
+  performance: 該当なし（コンポーネント分割のみ）
+  test: 該当なし（テスト基盤のない静的サイト）
+  conventions: 指摘 1 件（Minor: 公開時に戻す文言が CLAUDE.md の未決事項にない）。公開前アプリの表現は ja/en・HomePage とも事実に合った
+  error-handling: 該当なし（例外処理を伴う変更なし）
+  計画との整合: verification 4 件・decision 2 件あり。plan なしのため許可集合は判定不能。dirty なし、絶対パス混入なし

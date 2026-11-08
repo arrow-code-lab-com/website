@@ -1,8 +1,8 @@
 ---
 issue: 4
 flow: ai-default-medium
-status: review-running
-outcome: null
+status: review-success
+outcome: clean
 evidence:
   spec_status: none
   has_issue: true
@@ -13,27 +13,33 @@ evidence:
   open_major: 0
   merged: false
   accepted: false
-passed: [impl]
+passed: [impl, review]
 attempts: { impl: 1, review: 1 }
 edges:
   impl->review: 2
   review->impl: 1
-events: 38
+  review->pr: 1
+events: 41
 ---
 
 # Issue #4 の索引
 
 この索引は `events/` から機械的に生成される写しです。手で書き換えないでください（次の記録で上書きされます）。
 
-- 現在地: `review-running`
-- フロー: `ai-default-medium` / 通過: `impl`
-- open な指摘: 0 件（Major 以上 0 件）
+- 現在地: `review-success`（outcome: clean）
+- フロー: `ai-default-medium` / 通過: `impl` → `review`
+- open な指摘: 1 件（Major 以上 0 件）
+
+## open な指摘
+
+- Minor `CLAUDE.md:131` 公開前に合わせた文言（担当範囲・経歴・Apps のリード）を、公開時に戻すことが未決事項に書かれていない … `events/20261108T155351-review.yaml`
 
 ## 直近の経路
 
 - impl → review
 - review ↩ impl（Major 2 件: 公開予定のアプリを『ストア公開まで担当』と公開済みのように書いている／受入条件の verification event が無い）
 - impl → review
+- review → pr
 
 ## 記録（判断・懸念・検証・環境・質問）
 
