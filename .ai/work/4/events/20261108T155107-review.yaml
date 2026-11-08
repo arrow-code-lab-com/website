@@ -1,0 +1,8 @@
+node: review
+kind: run
+status: revert
+outcome: findings
+revert_to: impl
+reason: "Major 2 件: 公開予定のアプリを『ストア公開まで担当』と公開済みのように書いている／受入条件の verification event が無い"
+model: claude-opus-5-5
+summary: Critical 0 / Major 2 / Minor 9。impl へ差し戻し

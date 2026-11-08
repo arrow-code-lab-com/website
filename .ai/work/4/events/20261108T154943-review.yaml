@@ -1,0 +1,15 @@
+node: review
+kind: checkpoint
+sha: 15c0217c8c17e031211be0dbce3ab03db69a71e3
+summary: 観点レビュー完了（指摘 8 件）
+phase: rules
+detail: |
+  quality: 指摘 1 件（見出し階層）
+  refactoring: 指摘 1 件（AppList/AppDetail の tech・role 表示の重複と条件の不一致）
+  security: 該当なし（秘密情報・入力処理なし。個人名・勤務先・規模の記載なしを確認）
+  performance: 該当なし（カードのスクショは width=120・lazy・WebP 変換で影響小）
+  test: 該当なし（テスト基盤のない静的サイト）
+  conventions: 指摘 1 件（公開前のアプリに「ストア公開まで」= 事実に基づく実績のみの規約違反）＋文言の Minor 2 件（GitHub Copilot の補い、医療の業務知識と Notice の関係）
+  error-handling: 該当なし（例外処理を伴う変更なし）
+  計画との整合: verification 0 件で Major 1、decision/concern 0 件で Minor 1。plan なしのため許可集合は判定不能。dirty・退避 ref・絶対パス混入なし
+  アクセシビリティ（quality 内）: カード内スクショの alt で Minor 1

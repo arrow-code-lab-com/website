@@ -1,0 +1,8 @@
+node: review
+kind: finding
+severity: Minor
+at: src/components/HomePage.astro:72
+fix: 「伝言による行き違いが起きにくい体制です」のように断定を避ける
+state: open
+summary: 進め方の「伝言による行き違いがありません」が断定的な約束になっている
+body: "The 進め方 item 'ご相談の窓口から開発までを 1 人で担当するため、伝言による行き違いがありません' is an absolute guarantee. 故障シナリオ: CLAUDE.md asks for factual claims and no promises that conflict with the side-business conditions. Saying misunderstandings never happen is a promise the business can't keep. Softer wording like '起きにくい' (less likely) avoids it.（出典: /code-review）"

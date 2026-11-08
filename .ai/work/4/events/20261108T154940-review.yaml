@@ -1,0 +1,8 @@
+node: review
+kind: finding
+severity: Minor
+at: src/components/AppList.astro:39
+fix: "AppList の条件を (tech.length > 0 || role) にして tech と role をそれぞれ独立に出す。可能なら tech/role の dl を小さなコンポーネント（例: AppMeta.astro）に切り出して AppList と AppDetail で共有する"
+state: open
+summary: カードでは tech が空だと role も表示されない（詳細ページと条件が違う）
+body: AppList.astro:39-53 は role の dt/dd を app.data.tech.length > 0 の dl の中に入れているため、tech を書かず role だけ書いたアプリではカードに担当範囲が出ない。AppDetail.astro は (tech.length > 0 || role) で dl を出しており、条件が揃っていない。また tech/role の dl のマークアップとスタイル（AppDetail の .meta と AppList の .app-card__meta）が重複している。

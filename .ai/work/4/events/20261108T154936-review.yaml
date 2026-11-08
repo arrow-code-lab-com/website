@@ -1,0 +1,8 @@
+node: review
+kind: finding
+severity: Major
+at: .ai/work/4/events
+fix: "impl で受入条件 3 つそれぞれについて確認（npm run check / npm run build の結果、ビルド後の dist/index.html・/apps/room-check-pdf/・/en/ の表示確認、個人名・勤務先・規模の記載がないことの grep 等）を行い、kind: verification を受入条件ごとに積む"
+state: open
+summary: "Issue #4 の受入条件（Done）に対応する verification event が 1 件もない"
+body: "Issue #4 の Done は「トップの Apps から、何を作ったか・どんな技術かが分かる」「About を読むと経歴と得意分野が分かる」「勤務先や個人が特定できる情報がない」の 3 つだが、.ai/work/4/events に kind: verification が 0 件。impl の終了 event の summary に「check/build 通過」とあるだけで、受入条件ごとの確認結果（何で確かめたか）が残っていない。"

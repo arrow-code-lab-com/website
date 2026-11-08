@@ -1,0 +1,8 @@
+node: review
+kind: finding
+severity: Minor
+at: .ai/work/4/events
+fix: "impl で主な判断を kind: decision として積む（特に spec にない表現を補ったもの）"
+state: open
+summary: "kind: decision / concern が 0 件"
+body: 文言の選択（見出しを「開発事例」にした、nav を「開発事例」に変えた、Copilot を GitHub Copilot と書いた、tech に何を載せるか等）の判断が events に残っていない。

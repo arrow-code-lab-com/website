@@ -1,0 +1,8 @@
+node: review
+kind: finding
+severity: Minor
+at: src/components/HomePage.astro:46
+fix: "spec §4 Q1 でユーザーが「医療と書く（規模は書かない）」と決めているため、直すかどうかはユーザーの判断。直す場合の選択肢: (a) 年数を「10 年以上」とぼかす (b) 経歴から「現在も本業で開発職」と医療の組み合わせを分ける。推奨は現状維持のままユーザーに確認すること"
+state: open
+summary: 経歴の組み合わせ（医療系 15 年・現役・前職金融機関）と Notice の「本業と競合」で勤務先が絞り込みやすくなる
+body: "The career lines combine 'medical business systems, 15 years', 'currently employed as a developer' and 'previously at a financial institution'. Together they narrow down who the owner's employer is. 故障シナリオ: Rule in CLAUDE.md: '本業の勤務先が特定できる情報は書かない'. Industry, tenure and the 'competes with my main job' note in Notice, taken together, make the current employer easier to infer. The CLAUDE.md edit in this same branch explicitly allows the 15-year medical/C# wording, so this needs a conscious decision from the owner, not a quiet fix.（出典: /code-review）"

@@ -1,0 +1,8 @@
+node: review
+kind: finding
+severity: Minor
+at: src/components/HomePage.astro:48
+fix: ユーザーに使っている Copilot の種類を確認する。確認できるまでは「Copilot」とだけ書く
+state: open
+summary: 根拠の事実「Copilot」を「GitHub Copilot」と補っている
+body: "spec §4 と Issue #4 の事実は「Claude・Copilot の業務活用」だが、HomePage.astro:48「Claude や GitHub Copilot などの生成AIを、日々の開発業務に取り入れています。」と :63「Claude・GitHub Copilot を使った開発の効率化…」で GitHub Copilot と特定している。Microsoft 365 Copilot 等の可能性もあり、事実として確認されていない。"

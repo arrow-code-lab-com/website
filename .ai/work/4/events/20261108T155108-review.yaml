@@ -1,0 +1,6 @@
+node: review
+kind: revert
+from: review
+to: impl
+reason: "Major 2 件: 公開予定のアプリを『ストア公開まで担当』と公開済みのように書いている／受入条件の verification event が無い"
+summary: "Major 2 件: 公開予定のアプリを『ストア公開まで担当』と公開済みのように書いている／受入条件の verification event が無い"

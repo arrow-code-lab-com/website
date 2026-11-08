@@ -1,0 +1,8 @@
+node: review
+kind: finding
+severity: Minor
+at: src/components/HomePage.astro:168
+fix: スキルカードの見出しを h4 にする（見た目は既存の .card h3 と同じになるようスタイルを合わせる）
+state: open
+summary: About の小見出し（h3）の下のスキルカードも h3 で、見出しの階層が崩れている
+body: HomePage.astro:163 の「得意な技術・分野」が h3 で、その中の各スキルカードの見出し（:168 <h3>{skill.title}</h3>）も h3。スクリーンリーダーの見出し一覧で同じ階層に並ぶ。

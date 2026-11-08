@@ -1,0 +1,8 @@
+node: review
+kind: finding
+severity: Major
+at: src/content/apps/ja/room-check-pdf.md:19
+fix: 公開までは「企画から設計・開発まで 1 人で担当（Google Play で公開準備中）」のように現状に合わせる（ja/en とも揃える）。appsLead・aboutSkills も「ストアへの公開準備まで」等にする。CLAUDE.md の未決事項「RoomCheckPDF を Google Play で公開したら…」に、role・appsLead・aboutSkills の文言も「ストア公開まで」に戻す旨を追記する
+state: open
+summary: 公開前のアプリに「ストア公開まで担当」と完了済みの実績として書いている
+body: "RoomCheckPDF は status: development（カード・詳細とも「公開予定」、本文は「Google Play で公開予定です。」）なのに、role が「企画から設計・開発・ストア公開まで 1 人で担当」（en: \"Planned, designed, built and published by a single developer\"）、HomePage.astro:40 の appsLead が「アイデアの整理から設計・開発・ストアへの公開まで、すべて 1 人で担当しています。」、HomePage.astro:59 の aboutSkills が「Android アプリの開発から、ストアへの公開まで。」となっている。同じカード内に「公開予定」バッジと「ストア公開まで担当」が並び、訪問者から見て矛盾する。CLAUDE.md「実績や事例は、事実に基づいて書けるものだけ載せる」に反し、信頼してもらうという目的にも逆効果。同箇所: src/content/apps/en/room-check-pdf.md:17, src/components/HomePage.astro:40, src/components/HomePage.astro:59"

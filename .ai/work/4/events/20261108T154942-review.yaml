@@ -1,0 +1,8 @@
+node: review
+kind: finding
+severity: Minor
+at: src/components/AppList.astro:35
+fix: カード内のスクリーンショットは alt="" にする（詳細ページではキャプション付きのまま）
+state: open
+summary: カード全体のリンク内にスクリーンショットの alt が入り、リンクの読み上げ名が長くなる
+body: カードは全体が <a> で、その中のスクリーンショット 3 枚に alt={shot.caption} を付けているため、リンクの名前に「モードを選択 入居者モードのホーム 部屋ごとに点検」が加わる。カードでは画面の雰囲気を見せる装飾的な役割。

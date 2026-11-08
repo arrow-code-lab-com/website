@@ -1,0 +1,10 @@
+node: review
+kind: checkpoint
+sha: 15c0217c8c17e031211be0dbce3ab03db69a71e3
+summary: code-review 取り込み完了（指摘 8 件・採用 3・重複 5・範囲外 0）
+phase: code-review
+detail: |
+  実行: 実行した / target: ブランチ arrow-code-lab/about（base はフォーク側が独自に解決するため差分範囲がずれ得る。フォーク側は main との差分と報告）/ effort: medium / base_ref: main
+  手順 0 の差分ファイル一覧: 9 ファイル（git diff --name-only main...arrow-code-lab/about）
+  検算: 一覧内の file を持つ指摘 8 件 / 一覧外 0 件
+  重複で落とした: AppList.astro:39（role 条件）、HomePage.astro:68（医療と Notice）、AppList.astro:32（リンクの読み上げ名）、HomePage.astro:168（見出し階層）、AppDetail.astro:111（meta スタイル重複）

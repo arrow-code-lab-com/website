@@ -1,0 +1,8 @@
+node: review
+kind: finding
+severity: Minor
+at: src/components/HomePage.astro:244
+fix: .section-lead のルールを global.css の .section-title の隣へ移す
+state: open
+summary: 汎用名にした .section-lead が HomePage のスコープ付きスタイルに残っている
+body: "The section-specific `.services__lead` was renamed to a generic `.section-lead`, but it is still defined in HomePage's scoped styles while `.section-label` and `.section-title` live in global.css. 故障シナリオ: EnHomePage, or any other page that uses `class=\"section-lead\"`, gets no styling, because Astro scopes these styles to HomePage only. That breaks quietly the first time the English page adds a lead paragraph. The rule belongs in global.css next to `.section-title`.（出典: /code-review）"
