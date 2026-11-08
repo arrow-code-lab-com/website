@@ -14,7 +14,7 @@ screenshots:
 status: development
 platforms: [Android]
 tech: [Flutter, Dart, Riverpod, Hive, PDF generation, In-app purchases, AdMob]
-role: Planned, designed, built and published by a single developer
+role: Planned, designed and built by a single developer (coming soon to Google Play)
 links: {}
 legal:
   privacy: https://arrow-code-lab.github.io/room-check-pdf-policy/
