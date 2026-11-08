@@ -69,6 +69,10 @@ img {
   margin: 0 0 2rem;
 }
 
+.section-lead {
+  margin: -1rem 0 2rem;
+}
+
 .button {
   display: inline-flex;
   align-items: center;
