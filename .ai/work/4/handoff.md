@@ -1,38 +1,47 @@
 ---
 issue: 4
+pr: 7
 flow: ai-default-medium
-status: pr-running
-outcome: null
+status: pr-success
+outcome: ready
 evidence:
   spec_status: none
   has_issue: true
-  has_pr: false
+  has_pr: true
   tasks_total: 0
   tasks_done: 0
   integration: none
   open_major: 0
   merged: false
   accepted: false
-passed: [impl, review]
+passed: [impl, review, pr]
 attempts: { impl: 1, review: 1 }
 edges:
   impl->review: 2
   review->impl: 1
   review->pr: 1
-events: 42
+  pr->done: 1
+artifacts:
+  pr:
+    - .ai/local/tmp/pr-body-4.md
+events: 43
 ---
 
 # Issue #4 の索引
 
 この索引は `events/` から機械的に生成される写しです。手で書き換えないでください（次の記録で上書きされます）。
 
-- 現在地: `pr-running`
-- フロー: `ai-default-medium` / 通過: `impl` → `review`
+- 現在地: `pr-success`（outcome: ready）
+- フロー: `ai-default-medium` / 通過: `impl` → `review` → `pr`
 - open な指摘: 1 件（Major 以上 0 件）
 
 ## open な指摘
 
 - Minor `CLAUDE.md:131` 公開前に合わせた文言（担当範囲・経歴・Apps のリード）を、公開時に戻すことが未決事項に書かれていない … `events/20261108T155351-review.yaml`
+
+## 成果物
+
+- pr: `.ai/local/tmp/pr-body-4.md`
 
 ## 直近の経路
 
@@ -40,6 +49,7 @@ events: 42
 - review ↩ impl（Major 2 件: 公開予定のアプリを『ストア公開まで担当』と公開済みのように書いている／受入条件の verification event が無い）
 - impl → review
 - review → pr
+- pr → done
 
 ## 記録（判断・懸念・検証・環境・質問）
 
