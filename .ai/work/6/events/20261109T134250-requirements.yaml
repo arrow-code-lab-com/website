@@ -1,0 +1,11 @@
+node: requirements
+kind: run
+status: success
+outcome: 案A（全ページ共通の og 画像を日英 2 枚）を採用
+to: impl
+sha: ce668df
+artifacts:
+  - .ai/specs/spec-20261109-132837.md
+  - .ai/specs/assets/spec-20261109-132837/review.html
+model: claude-opus-5-5
+summary: 案A を採用し spec を仕上げて push（.ai/specs/spec-20261109-132837.md）。まだ検証されていない
