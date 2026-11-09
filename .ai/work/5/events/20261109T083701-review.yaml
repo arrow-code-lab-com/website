@@ -1,0 +1,14 @@
+node: review
+kind: checkpoint
+sha: bbc7296e4ebced61e6b5bd40edc799eac7602efd
+summary: 観点レビュー完了（指摘 4 件）
+phase: rules
+detail: |
+  quality: 指摘 0 件（copy の名前・構造は既存の noticeItems 等と同じ形。CSS のクラス名も BEM でそろっている）
+  refactoring: 指摘 0 件（notice__decline を notice__list に寄せて共通化済み。about__list と同じ規則は section 単位の scoped style で既存どおり）
+  security: 指摘 1 件（Major: 追跡物 review.html にローカル絶対パス。HomePage には秘密情報・入力処理なし、外部リンクは既存の rel=noopener のまま）
+  performance: 該当なし（JS なし。details/summary と CSS のみで静的 HTML が増えるだけ）
+  error-handling: 該当なし（静的な文言とマークアップのみで、失敗する処理がない）
+  test: 該当なし（リポジトリにテストの仕組みが無く、静的な文言の変更。検証は check/build と verification で行う方針）
+  conventions: 指摘 2 件（Minor: NDA の答えが事実の範囲を超える／Minor: FAQ の飾り記号が読み上げられる。CLAUDE.md の規則 — 個人名・住所・電話なし、金額なし、即時対応などの約束なし、英語ページ変更なし、ページ文言は HomePage の copy — は守られている）
+  計画との整合: 指摘 1 件（Minor: §1-5 の 3 観点に verification なし）。変更ファイルは spec §3 の HomePage.astro・CLAUDE.md だけ、スコープ外の変更なし、decision 1 件、dirty なし

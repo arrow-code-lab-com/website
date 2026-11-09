@@ -1,0 +1,8 @@
+node: review
+kind: finding
+severity: Minor
+at: src/components/HomePage.astro:401
+fix: "代替テキストを空にする書き方にする: content: 'Q' / ''; content: '+' / ''; content: '−' / ''。（古いブラウザ向けに、同じ宣言の前に従来の content を置いてフォールバックさせてもよい）"
+state: open
+summary: FAQ の質問の前後に付けた飾りの「Q」「+」「−」が、スクリーンリーダーで質問文と一緒に読み上げられる
+body: "summary::before { content: 'Q' } と summary::after { content: '+' }（開いたときは '−'）は CSS の生成コンテンツで、多くのスクリーンリーダーは summary のアクセシブルな名前に含めて読む（例:「Q 小さな依頼や…かまいませんか？ プラス」）。開閉の状態は details/summary 自体が伝えるので、記号は見た目だけのもの。#4 ではカード内のスクリーンショットを読み上げ対象から外している（ca93aaf）ので、方針もそろわない。"

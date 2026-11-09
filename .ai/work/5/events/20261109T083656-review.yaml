@@ -1,0 +1,8 @@
+node: review
+kind: finding
+severity: Minor
+at: .ai/specs/spec-20261108-155914.md:1-5
+fix: 次に impl を回すときに、この 3 つの観点の verification event を積む（ビルド結果 dist/index.html での確認でよい）
+state: open
+summary: "仕様書 §1-5 の受入の観点のうち 3 つに、kind: verification の event が無い"
+body: impl の verification は Done1（並び）・Done2（FAQ 7 問・金額なし・即時対応なし）・英語ページの 3 件。§1-5 のうち「Flow に『ご相談・お見積もりは無料』が書かれている」「Notice が『こんな方に向いています』から始まる」「Contact に書いてほしいことの案内と、要件が固まっていなくてよい旨がある」の 3 つは verification が無く、impl の run の summary に触れられているだけ。レビューでコードを読み、3 つとも満たしていることは確かめた（HomePage.astro の flow / flowNote、Notice の先頭の noticeSuited、contactAsk / contactAskNote）。Issue の Done（最小）3 項目には verification があるため Minor とした。

@@ -1,0 +1,8 @@
+node: review
+kind: finding
+severity: Minor
+at: src/components/HomePage.astro:392
+fix: 要調査（出典に方針の記述なし）。対象とするブラウザの範囲を決めたうえで、必要なら summary の中を span で包んでその span を flex にする
+state: open
+summary: "summary に display: flex を当てており、古い WebKit では三角マーカーと「+」が両方出たり「Q」が改行されたりするおそれ"
+body: "The FAQ `<summary>` uses `display: flex`, which older WebKit versions did not apply reliably to summary elements, while only `::-webkit-details-marker` is hidden. / 故障シナリオ: On older iOS Safari the summary may fall back to its default display, showing both the native disclosure triangle and the custom '+' marker, or wrapping the 'Q' onto its own line.（出典: /code-review）"

@@ -1,0 +1,8 @@
+node: review
+kind: run
+status: revert
+outcome: findings
+revert_to: impl
+reason: "Major 1 件: 確認ページ review.html にローカルの絶対パスがコミットされている"
+model: claude-opus-5-5
+summary: Major 1 件（review.html の絶対パス）、Minor 10 件。impl へ戻す

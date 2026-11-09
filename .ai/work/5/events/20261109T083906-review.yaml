@@ -1,0 +1,8 @@
+node: review
+kind: finding
+severity: Minor
+at: src/components/HomePage.astro:106
+fix: "選択肢: (a) ステップか注記のどちらかに寄せる（出典の提案）／(b) 仕様書 §3-2 が両方に書くことを求めているので、このままにする。推奨は (b)（仕様どおり。変えるなら仕様書も直す）"
+state: open
+summary: Flow の中で「無料」がステップ本文と注記の 2 回出る
+body: "\"無料\" is stated twice inside the Flow section: the step body says \"ここまでは無料です。\" and `flowNote` right below repeats \"ご相談・お見積もりは無料です。\". / 故障シナリオ: The same message also appears in the hero, `servicesNote` and the first FAQ answer, so the page says it five or more times. Any change to the free-consultation policy means editing every copy. Keep it in either the step or the note, not both.（出典: /code-review）"

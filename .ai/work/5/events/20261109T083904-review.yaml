@@ -1,0 +1,8 @@
+node: review
+kind: finding
+severity: Minor
+at: src/components/HomePage.astro:121
+fix: contactAskNote に「秘密にかかわる内容は NDA を結んでからお伺いします」のような一文を足す（出典の提案）。NDA の答えの後半を削る場合（観点レビューの NDA の Minor）は、この食い違いも同時に解消する
+state: open
+summary: FAQ の NDA の答え（相談内容を伺う前に結べる）と、Contact でフォームに詳しく書いてもらう案内が食い違う
+body: "The NDA answer says an NDA can be signed before the consultation details are shared, but the Contact section asks visitors to write what they want to do, how they work today, timing and budget in the Google Form, with no caveat about confidential information. / 故障シナリオ: A visitor with a confidential project reads the FAQ (an NDA can come first), then reads the Contact list and puts sensitive details into the Google Form before any NDA exists. The FAQ promise and the Contact instructions contradict each other. Suggested fix: add a line to `contactAskNote` such as \"秘密にかかわる内容は NDA を結んでからお伺いします\".（出典: /code-review）"

@@ -1,0 +1,6 @@
+node: review
+kind: revert
+from: review
+to: impl
+reason: "Major 1 件: 確認ページ review.html にローカルの絶対パスがコミットされている"
+summary: "Major 1 件: 確認ページ review.html にローカルの絶対パスがコミットされている"

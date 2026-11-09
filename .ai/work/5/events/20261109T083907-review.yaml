@@ -1,0 +1,8 @@
+node: review
+kind: finding
+severity: Minor
+at: src/components/HomePage.astro:117
+fix: "選択肢: (a) 共通の文言の定数にする／(b) FAQ から外す（出典の提案）／(c) 仕様書 §3-4 が 7 問の 1 つとして求めているので残す。推奨は (c)"
+state: open
+summary: FAQ の 1 問目（小さな依頼・相談だけ）が servicesLead と noticeSuited の内容と重なる
+body: "The first FAQ answer (small requests or consultation only are fine, free) repeats `servicesLead` (\"小さなご依頼や、お話を聞くだけのご相談も承ります\") and the `noticeSuited` items \"小さく始めたい方、まずは相談だけしてみたい方\". / 故障シナリオ: The same point is copied into three sections in slightly different wording. Each copy has to be edited separately, and readers see the same answer three times. A single copy constant could be reused, or the FAQ entry dropped.（出典: /code-review）"

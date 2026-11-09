@@ -1,0 +1,8 @@
+node: review
+kind: finding
+severity: Minor
+at: src/components/HomePage.astro:377
+fix: .section-title + .notice__heading にする、または修飾クラスで上の余白を消す（出典の提案）
+state: open
+summary: .notice__heading:first-of-type は h3 の並び順に依存しており、前に h3 が増えると余白が崩れる
+body: "`.notice__heading:first-of-type` zeroes the top margin based on the h3's position among all its sibling elements, not on the class. / 故障シナリオ: If any other h3 is added to the Notice container before \"こんな方に向いています\" (for example a lead heading), the first `notice__heading` gets the 2.5rem margin again and spacing breaks without any warning. The rule relies on DOM order. Removing the margin through a modifier class, or using `.section-title + .notice__heading`, avoids that.（出典: /code-review）"

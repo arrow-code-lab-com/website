@@ -1,0 +1,8 @@
+node: review
+kind: finding
+severity: Major
+at: .ai/specs/assets/spec-20261108-155914/review.html:5
+fix: 5 行目と 75 行目のパス部分を、53b3eba と同じくリポジトリからの相対パス ".ai/specs/assets/spec-20261108-155914" に置き換える。確認ページを生成する仕組みが絶対パスを書き込むなら、そちらも相対パスを出すように直すと再発しない
+state: open
+summary: 確認ページにローカルの絶対パス（/Users/yano/...）が入ったままコミットされている（5 行目と 75 行目）
+body: "追跡されているファイル .ai/specs/assets/spec-20261108-155914/review.html の 5 行目 <meta name=\"fak-review\" content=\"/Users/yano/orca/workspaces/website/flow-notice-faq-contact/.ai/specs/assets/spec-20261108-155914|...\"> と、75 行目 <main data-key=\"/Users/yano/orca/workspaces/website/flow-notice-faq-contact/.ai/specs/assets/spec-20261108-155914|...\"> に、ローカルの絶対パス（OS のユーザー名を含む）が入っている。コミット 94e1030 で入った。#2 では同じ問題をコミット 53b3eba（fix(#2): 確認ページからローカルの絶対パスを除く）で直しており、同じことが繰り返されている。公開リポジトリならユーザー名と作業ディレクトリの構成が出る。"

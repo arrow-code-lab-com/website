@@ -1,0 +1,8 @@
+node: review
+kind: finding
+severity: Minor
+at: src/components/HomePage.astro:419
+fix: details を grid にする、または summary の文と答えの両方に 1ch＋gap の padding-left をそろえる（出典の提案）
+state: open
+summary: FAQ の答えの字下げ 1.75rem が「Q」＋間隔の幅（約 1.35rem）と合わず、質問文とずれる
+body: "The answer indent `margin-left: 1.75rem` is a guess at the width of the 'Q' marker plus the gap, and does not match it: one mono 'Q' is about 0.6rem plus a 0.75rem gap, about 1.35rem. / 故障シナリオ: Answers sit about 0.4rem to the right of the question text, and the offset changes with the font. Grid on the details element, or `padding-left` equal to `1ch + gap` on both summary text and answer, would keep them aligned.（出典: /code-review）"

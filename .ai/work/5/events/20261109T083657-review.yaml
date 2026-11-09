@@ -1,0 +1,5 @@
+node: review
+kind: concern
+summary: "ローカルの main が origin/main より古い（PR #7 のマージ 79dda61 を含まない）"
+body: "git diff main...HEAD だと PR #7 の変更（AppMeta など 14 ファイル）まで差分に入る。レビューは origin/main...HEAD（PR #8 の差分 6 ファイルと一致）で行った。後続の工程で main を基準に差分を取るときは、git fetch で main を更新するか origin/main を使う必要がある"
+who: このフローを回す人

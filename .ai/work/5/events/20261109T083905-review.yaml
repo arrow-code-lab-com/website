@@ -1,0 +1,8 @@
+node: review
+kind: finding
+severity: Minor
+at: src/components/HomePage.astro:143
+fix: 対応時間の文言を共通の定数にして noticeItems と FAQ の答えで使う（出典の提案）。または現状のまま CLAUDE.md の「Notice・FAQ・Contact も合わせて直す」で運用する。推奨は前者
+state: open
+summary: FAQ の保守の答えが対応時間と即時対応なしを Notice と同じ文言で直書きしており、条件を変えたときにずれる
+body: "The FAQ maintenance answer hardcodes \"対応時間（平日の夜と土日祝日）\" and \"24時間の障害対応や、即時の対応はお受けしていません\". Both repeat `noticeItems[0].body` and `noticeDecline[2]` word for word instead of coming from one source. / 故障シナリオ: If the side-business hours change and only the Notice cards are edited, the FAQ keeps the old hours and the page contradicts itself. CLAUDE.md now has to list Notice, FAQ and Contact for manual syncing. Pulling the hours into a shared constant used by `noticeItems` and the FAQ answer removes that drift.（出典: /code-review）"
