@@ -2,8 +2,8 @@
 issue: 5
 pr: 8
 flow: ai-default-medium
-status: review-revert
-outcome: findings
+status: impl-running
+outcome: null
 evidence:
   spec_status: draft
   has_issue: true
@@ -15,7 +15,7 @@ evidence:
   merged: false
   accepted: false
 passed: [triage, requirements, impl]
-attempts: {}
+attempts: { impl: 1 }
 edges:
   triage->requirements: 1
   requirements->impl: 1
@@ -27,14 +27,14 @@ artifacts:
   requirements:
     - .ai/specs/spec-20261108-155914.md
     - .ai/specs/assets/spec-20261108-155914/review.html
-events: 27
+events: 28
 ---
 
 # Issue #5 の索引
 
 この索引は `events/` から機械的に生成される写しです。手で書き換えないでください（次の記録で上書きされます）。
 
-- 現在地: `review-revert`（outcome: findings）
+- 現在地: `impl-running`
 - フロー: `ai-default-medium` / 通過: `triage` → `requirements` → `impl`
 - open な指摘: 11 件（Major 以上 1 件）
 
