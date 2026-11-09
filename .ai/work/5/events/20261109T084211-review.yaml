@@ -1,0 +1,7 @@
+node: review
+kind: run
+status: success
+outcome: clean
+to: pr
+model: claude-opus-5-5
+summary: 再レビューで新しい指摘 0 件。前回 11 件は直したもの 7・直さないもの 4（理由妥当）。Major 以上の open 0 件

@@ -2,8 +2,8 @@
 issue: 5
 pr: 8
 flow: ai-default-medium
-status: review-running
-outcome: null
+status: review-success
+outcome: clean
 evidence:
   spec_status: draft
   has_issue: true
@@ -14,28 +14,29 @@ evidence:
   open_major: 0
   merged: false
   accepted: false
-passed: [triage, requirements, impl]
+passed: [triage, requirements, impl, review]
 attempts: { impl: 1, review: 1 }
 edges:
   triage->requirements: 1
   requirements->impl: 1
   impl->review: 2
   review->impl: 1
+  review->pr: 1
 artifacts:
   triage:
     - .ai/specs/spec-20261108-155914.md
   requirements:
     - .ai/specs/spec-20261108-155914.md
     - .ai/specs/assets/spec-20261108-155914/review.html
-events: 45
+events: 47
 ---
 
 # Issue #5 の索引
 
 この索引は `events/` から機械的に生成される写しです。手で書き換えないでください（次の記録で上書きされます）。
 
-- 現在地: `review-running`
-- フロー: `ai-default-medium` / 通過: `triage` → `requirements` → `impl`
+- 現在地: `review-success`（outcome: clean）
+- フロー: `ai-default-medium` / 通過: `triage` → `requirements` → `impl` → `review`
 - open な指摘: 0 件（Major 以上 0 件）
 
 ## 成果物
@@ -51,6 +52,7 @@ events: 45
 - impl → review
 - review ↩ impl（Major 1 件: 確認ページ review.html にローカルの絶対パスがコミットされている）
 - impl → review
+- review → pr
 
 ## 記録（判断・懸念・検証・環境・質問）
 

@@ -1,0 +1,16 @@
+node: review
+kind: checkpoint
+sha: bf3c8580b03edecb75dbd3515ecf830c5907a089
+summary: 観点レビュー完了（指摘 0 件）
+phase: rules
+detail: |
+  範囲: bbc7296..bf3c858（re-review。review.html と HomePage.astro の 2 ファイル）
+  quality: 該当なし（CSS に意図のコメントが付き、Q の幅 1rem＋gap 0.75rem＝字下げ 1.75rem で数値が一致）
+  refactoring: 該当なし（.section-title + .notice__heading は h2 の直後の h3 にだけ効き、DOM 順の依存が消えた）
+  security: 該当なし（review.html の 2 か所は相対パスになり、git grep で追跡物に /Users/ なし）
+  performance: 該当なし（CSS 宣言の追加のみ）
+  error-handling: 該当なし（静的な文言と CSS のみ）
+  test: 該当なし（テストの仕組みなし。dist の CSS で content の従来の宣言と / '' の両方が残ることを確認）
+  conventions: 該当なし（NDA の答えは「はい、結べます。」のみで、確かめていない約束なし。金額・即時対応の約束なし）
+  前回の指摘の確認: done 7 件はすべて現物で直っていることを確認。wontfix 4 件の理由は妥当（無料の 2 回は仕様書 §3-2、FAQ 1 問目は §3-4 の 7 問、対応時間の直書きは CLAUDE.md の規則に FAQ を加えて運用、古い WebKit は対象外）
+  計画との整合: 指摘 0 件（変更は spec の対象ファイル内。§1-5 の残り 3 観点に verification あり。dirty なし）
