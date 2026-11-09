@@ -1,0 +1,13 @@
+node: review
+kind: finding
+severity: Minor
+at: src/i18n/ui.ts:19
+fix: "PR で言い回しを確認するときに、自社アプリに触れる一言（例: 末尾に『自社アプリの開発・公開も行っています。』）を足すかをユーザーに聞く。"
+state: open
+summary: 日本語の site.description から『自社アプリの開発・公開』が抜けた
+body: |
+  The new Japanese `site.description` drops the 自社アプリの開発・公開 business line that the old description included. It is the default for every Japanese page and for og:description.
+
+  故障シナリオ: Japanese pages without their own description (including the apps listing context) now describe the business as only contract work and AI consulting. Search and share snippets no longer mention the business's own apps, which CLAUDE.md lists as one of its three business lines and as site goal 3.
+
+  （取り込み時の注記: 仕様 §3-3 は『受託と AI 相談が先に来る形に直す（Hero のリード文に揃える。言い回しは実装で決め、PR で確認する）』で、自社アプリを外せとは書いていない）（出典: /code-review）

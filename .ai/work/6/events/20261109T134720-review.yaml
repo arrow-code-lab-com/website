@@ -1,0 +1,5 @@
+node: review
+kind: concern
+summary: "受入の観点に対応する kind: verification の event が 1 件も無いが、impl-direct の手順が verification を積まない"
+who: フロー定義（ai-default-medium）の管理者
+body: "review.md の計画との整合 #3（verification の event が無い受入条件は Major）を機械的に当てると、仕様 §1-5 の受入の観点 8 件すべてが該当する。ただし ai-default-medium の impl ノードが使う procedures/impl-direct.md には verification を積む指示が無く、フローに acceptance ノードも無いため、impl に戻しても解消しない（無限に revert する）。impl の終了 summary には『check/build 通過、375px/320px でヘッダー 1 行を確認』とある。今回は finding（Major）にせず concern として残す。レビューでは og 画像が 1200x630 の PNG であること、英語の画像・title・description に受託・相談・見積もりの言葉が無いこと、画像に金額・個人名が無いことを目視で確かめた。"

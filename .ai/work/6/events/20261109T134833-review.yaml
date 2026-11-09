@@ -1,0 +1,13 @@
+node: review
+kind: finding
+severity: Minor
+at: src/i18n/ui.ts:17
+fix: 仕様の指定どおりなので、揃えるかは PR でユーザーに確認する。揃えるなら site.title を『アプリ開発・AI活用のご相談 | Arrow Code Lab』にし、仕様も直す。
+state: open
+summary: トップの title は全角『｜』、下層ページは半角『 | 』で、屋号の区切りが揃っていない
+body: |
+  The Japanese top-page title uses a full-width separator (`｜Arrow Code Lab`), but BaseLayout builds every subpage title with an ASCII separator (`${title} | Arrow Code Lab`).
+
+  故障シナリオ: Search results and browser tabs show 'アプリ開発・AI活用のご相談｜Arrow Code Lab' for the top page and 'プライバシーポリシー | Arrow Code Lab' for subpages. The brand suffix is inconsistent, and the CLAUDE.md line just added (「{ページ名} | Arrow Code Lab」) only describes one of the two formats.
+
+  （取り込み時の注記: 全角『｜』は仕様 §3-3 の指定どおり）（出典: /code-review）

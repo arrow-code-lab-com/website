@@ -1,0 +1,8 @@
+node: review
+kind: finding
+severity: Minor
+at: scripts/og-image.mjs:13
+fix: "`import { fileURLToPath } from 'node:url';` を使い、`sharp(fileURLToPath(new URL(file, src)))`・`.toFile(fileURLToPath(dest))` にする。"
+state: open
+summary: file URL の .pathname をそのままファイルパスとして sharp に渡している（空白・日本語を含むパスや Windows で壊れる）
+body: "`sharp(new URL(file, src).pathname)` と `.toFile(dest.pathname)` は URL の pathname を使っている。pathname はパーセントエンコードされたままなので、リポジトリを置いたパスに空白や日本語が含まれる（例: /Users/x/My Sites/website）と `/Users/x/My%20Sites/...` を開こうとして ENOENT で落ちる。Windows では `/C:/...` になり同様に失敗する。"

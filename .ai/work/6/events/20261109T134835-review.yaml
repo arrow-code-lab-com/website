@@ -1,0 +1,11 @@
+node: review
+kind: finding
+severity: Minor
+at: src/layouts/BaseLayout.astro:19
+fix: "作り直す頻度は低いので、CLAUDE.md の og 画像の手順に『作り直したらファイル名を変える（例: ja-2.png）か、各 SNS のカード確認ツールでキャッシュを更新する』と書く。仕組みで解決するなら `?v=` を付ける。"
+state: open
+summary: og:image の URL が固定（/og/{lang}.png）で、画像を作り直しても SNS のキャッシュが残る
+body: |
+  The og:image URL is fixed at `/og/{lang}.png` and has no version or hash, so SNS crawlers keep showing the old card after the image is regenerated.
+
+  故障シナリオ: After changing `scripts/og/ja.svg`, running `npm run og` and deploying, X/Facebook/LINE keep showing the previously cached `ja.png` for days. Putting the image in `src/assets` and importing it (so Astro hashes the filename), or adding a `?v=` query, would make the update visible.（出典: /code-review）

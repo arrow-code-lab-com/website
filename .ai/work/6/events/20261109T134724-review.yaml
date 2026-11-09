@@ -1,0 +1,14 @@
+node: review
+kind: checkpoint
+sha: 4ab9f69a549158c7108f33c44184b481aa5ce4c3
+summary: 観点レビュー完了（指摘 3 件）
+phase: rules
+detail: |
+  quality: 該当なし（Header の contactLink に英語で別扱いにする理由のコメントあり、命名・ネストとも問題なし）
+  refactoring: 該当なし（ja.svg/en.svg の重複は文言差し替え用の元データで共通化の対象外）
+  security: 該当なし（target=_blank に rel=noopener あり、秘密情報・個人名・住所・電話番号・金額の混入なし）
+  performance: 該当なし（PNG 2 枚で計約 100KB、ビルド・依存の追加なし）
+  test: 該当なし（テスト基盤の無い静的サイト。check/build と目視が検証手段）
+  error-handling: 指摘 1 件（og-image.mjs が .pathname をファイルパスに使う）
+  conventions: 指摘 1 件（sharp を package.json に無いまま import）。CLAUDE.md の英語ページ規約・副業条件・料金非掲載は守られている
+  計画との整合: 指摘 1 件（#4 decision/concern 0 件）、#3 は concern に回した（impl-direct が verification を積まない）

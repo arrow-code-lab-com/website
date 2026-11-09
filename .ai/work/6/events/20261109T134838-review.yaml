@@ -1,0 +1,10 @@
+node: review
+kind: checkpoint
+sha: 4ab9f69a549158c7108f33c44184b481aa5ce4c3
+summary: code-review 取り込み完了（指摘 8 件・採用 6・重複 2・範囲外 0）
+phase: code-review
+detail: |
+  実行: 実行した / target: PR #9 / effort: medium
+  手順 0 の差分ファイル一覧: 13 ファイル（gh pr diff 9 --name-only）
+  検算: 一覧内の file を持つ指摘 8 件 / 一覧外 0 件
+  採用 6 件（Critical 0 / Major 0 / Minor 6）、重複 2 件（og-image.mjs:13 pathname、og-image.mjs:4 sharp 未宣言）、範囲外 0 件

@@ -1,0 +1,8 @@
+node: review
+kind: finding
+severity: Minor
+at: .ai/work/6/events
+fix: PR 本文に、実装で決めた事項（PNG の書き出し方・description の言い回し・22rem 以下でロゴ文字を隠す判断）を列挙して確認を求める。
+state: open
+summary: "この Issue に kind: decision / concern の event が 0 件"
+body: "計画との整合 #4。impl は「PNG の書き出し方（sharp を astro 経由で使う）」「日本語 description の言い回し」「22rem 以下でロゴの文字を隠す」など、仕様が実装に委ねた判断をしているが、decision の event として残っていない。"

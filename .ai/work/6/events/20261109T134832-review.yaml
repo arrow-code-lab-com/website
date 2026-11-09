@@ -1,0 +1,13 @@
+node: review
+kind: finding
+severity: Minor
+at: src/components/Header.astro:17
+fix: 仕様で決めた挙動なので今回は変えない。PR 本文で、このリスク（対応条件を読まずに送る人が増えうる）を改めて確認する。変える場合は日本語も `${home}#contact` に向ける。
+state: open
+summary: 日本語ヘッダーのお問い合わせボタンが Google フォームを直接開き、Contact セクション（返信の目安・書いてほしいこと）を飛ばす
+body: |
+  On Japanese pages, the header's お問い合わせ button opens the Google Form directly in a new tab. This skips the on-page Contact section, including the reply-time note and the guidance on what to write.
+
+  故障シナリオ: CLAUDE.md says Contact should hold 'Googleフォームへの導線と返信の目安、書いてほしいこと', and that FAQ/Notice sit right before Contact on purpose. A visitor who clicks the sticky header button goes straight to the form without seeing the side-job conditions (返信は3日以内、平日日中不可, and so on). That could lead to mismatched expectations, or to inquiries the business doesn't accept. Linking to `${home}#contact`, as the English header does, keeps the intended flow.
+
+  （取り込み時の注記: 仕様 §4 Q2 でユーザーが『Google フォームを直接開く』を選び、§8 にこのリスクを未解決事項として記録済み。仕様どおりのため Minor とした）（出典: /code-review）

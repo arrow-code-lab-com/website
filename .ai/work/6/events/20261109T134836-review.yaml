@@ -1,0 +1,13 @@
+node: review
+kind: finding
+severity: Minor
+at: scripts/og/en.svg:9
+fix: CLAUDE.md の手順に『macOS（Hiragino Sans がある環境）で書き出す』と明記する。CI では書き出さない。
+state: open
+summary: SVG の文字が実行した PC のフォント（Hiragino Sans・Menlo）頼みで、無い環境では豆腐や折り返しになっても成功扱いで書き出される
+body: |
+  The SVG text depends on fonts installed on the machine that runs the script (Hiragino Sans, Menlo), and nothing is bundled or checked. The PNG output therefore differs from machine to machine.
+
+  故障シナリオ: On Linux or CI without Hiragino or Noto Sans JP, the Japanese headline in `ja.svg` renders as tofu (blank boxes), or falls back to a font whose glyphs are wider at size 72. The line 'アプリ開発・AI活用の' could then overflow 1200px, and the script would still write and log the PNG as if it had succeeded.
+
+  （取り込み時の注記: CLAUDE.md に『文字は実行した PC のフォントで描かれる』『PNG を目で確かめてからコミットする』と書かれている）（出典: /code-review）

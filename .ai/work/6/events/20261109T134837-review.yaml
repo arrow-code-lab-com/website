@@ -1,0 +1,11 @@
+node: review
+kind: finding
+severity: Minor
+at: src/components/Header.astro:17
+fix: "`src/i18n/ui.ts` の `contact` の隣に `formLink = { href: contact.formUrl, target: '_blank', rel: 'noopener' }` を置き、4 か所で `{...formLink}` を使う。急がない。"
+state: open
+summary: Google フォームへの外部リンク属性（formUrl＋target=_blank rel=noopener）の手書きが 4 か所になった
+body: |
+  The header copies the `contact.formUrl` + `target="_blank" rel="noopener"` link setup that HomePage.astro already writes twice (lines 166 and 306) and AppDetail writes again. There are now four hand-written copies of the external-link attributes.
+
+  故障シナリオ: If the form link policy changes (for example adding `noreferrer`, or switching to `#contact`), all four places have to be edited by hand, and some are likely to be missed. A shared constant or helper in `src/i18n/ui.ts`, next to `contact`, would avoid the drift.（出典: /code-review）

@@ -1,0 +1,8 @@
+node: review
+kind: run
+status: success
+outcome: clean
+to: pr
+sha: 4ab9f69
+model: claude-opus-5-5
+summary: 観点レビューと /code-review 取り込みを完了。Major 以上 0 件、Minor 9 件は open のまま PR 本文に列挙

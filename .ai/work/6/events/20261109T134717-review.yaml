@@ -1,0 +1,8 @@
+node: review
+kind: finding
+severity: Minor
+at: scripts/og-image.mjs:4
+fix: 依存を増やさない方針を保つなら、スクリプト冒頭のコメントと CLAUDE.md の og 画像の項に「sharp は astro の optionalDependencies として入るものを使う」と書く。あわせて import を動的 import にして、見つからないときは『npm install（optional を省かない）を実行してください』と出して終了する。
+state: open
+summary: og 画像の書き出しスクリプトが package.json に無い sharp を直接 import している（astro の optionalDependencies 頼み）
+body: "scripts/og-image.mjs は `import sharp from 'sharp';` としているが、package.json の dependencies / devDependencies に sharp は無い。sharp は node_modules/astro/package.json の optionalDependencies（\"sharp\": \"^0.35.4\"）経由で巻き上げられているだけである。`npm install --omit=optional` や、将来 astro が sharp を外したとき・npm の巻き上げ方が変わったときに `npm run og` が ERR_MODULE_NOT_FOUND で落ちる。仕様（§3-1）は「依存パッケージを増やさない」としているので、追加しない判断自体は仕様どおりだが、その前提が CLAUDE.md にもスクリプトにも書かれていない。"
