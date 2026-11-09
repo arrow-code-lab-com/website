@@ -14,8 +14,10 @@ export const contact = {
 
 export const ui = {
   ja: {
+    'site.title': 'アプリ開発・AI活用のご相談｜Arrow Code Lab',
     'site.description':
-      'Arrow Code Lab は、アプリケーションの開発・公開、アプリ開発のご依頼、AI活用のご相談を承る個人事業です。',
+      'Arrow Code Lab は、アプリ開発のご依頼とAI活用のご相談を承る個人事業です。紙やExcelで回している作業のアプリ化から、生成AIの取り入れ方まで。ご相談・お見積もりは無料です。',
+    'site.ogImageAlt': 'Arrow Code Lab　アプリ開発・AI活用のご相談を承ります',
     'nav.services': 'サービス',
     'nav.apps': '開発事例',
     'nav.about': 'About',
@@ -31,8 +33,10 @@ export const ui = {
     'apps.back': 'トップへ戻る',
   },
   en: {
+    'site.title': 'Arrow Code Lab — Apps for everyday needs',
     'site.description':
       'Arrow Code Lab is an independent developer based in Japan that builds and publishes apps.',
+    'site.ogImageAlt': 'Arrow Code Lab — Apps for everyday needs.',
     'nav.services': 'Services',
     'nav.apps': 'Apps',
     'nav.about': 'About',
