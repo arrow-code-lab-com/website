@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#ffffff"/>
+  <path d="M760 210h360M1000 90l120 120-120 120" fill="none" stroke="#eff6ff" stroke-width="60" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect width="26" height="630" fill="#2563eb"/>
+  <g transform="translate(108 92)">
+    <rect width="72" height="72" rx="16" fill="#2563eb"/>
+    <path d="M20 36h29M38 23l13 13-13 13" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="204" y="144" font-family="Hiragino Sans, Noto Sans JP, sans-serif" font-weight="700" font-size="46" fill="#0f172a">Arrow Code Lab</text>
+  <text x="108" y="330" font-family="Menlo, Consolas, monospace" font-size="28" letter-spacing="2" fill="#2563eb">APPS</text>
+  <text font-family="Hiragino Sans, Noto Sans JP, sans-serif" font-weight="700" font-size="72" fill="#0f172a">
+    <tspan x="108" y="420">Apps for</tspan>
+    <tspan x="108" y="512">everyday needs.</tspan>
+  </text>
+  <text x="108" y="572" font-family="Hiragino Sans, Noto Sans JP, sans-serif" font-size="30" fill="#64748b">An independent developer based in Japan.</text>
+  <text x="1110" y="572" text-anchor="end" font-family="Menlo, Consolas, monospace" font-size="24" fill="#64748b">arrow-code-lab.com</text>
+</svg>
