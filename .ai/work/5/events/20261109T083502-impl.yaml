@@ -1,0 +1,3 @@
+node: impl
+kind: decision
+summary: Notice の対応条件カードの見出しを h3 から h4 にした（新しい小見出し「対応の条件」の下に入るため）。Contact は背景の交互の並びに合わせて section--alt にした

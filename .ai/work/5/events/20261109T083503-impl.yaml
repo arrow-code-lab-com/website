@@ -1,0 +1,8 @@
+node: impl
+kind: run
+status: success
+outcome: 実装完了
+to: review
+sha: bbc7296e4ebced61e6b5bd40edc799eac7602efd
+model: claude-opus-5-5
+summary: "案A を実装: Flow に無料を明記、Notice を向いている方から始め、FAQ（開閉式 7 問）を Contact の前に追加、Contact に書いてほしいことを案内。CLAUDE.md を更新。check/build 通過"

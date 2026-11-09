@@ -1,0 +1,3 @@
+node: impl
+kind: verification
+summary: "Done1: 並びが Flow → Notice → FAQ → Contact になり、Contact の直前は FAQ（お受けできない依頼は Notice の最後）"
