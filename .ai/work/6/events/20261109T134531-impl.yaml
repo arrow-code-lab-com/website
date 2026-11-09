@@ -1,0 +1,8 @@
+node: impl
+kind: run
+status: success
+outcome: 実装完了
+to: review
+sha: 4ab9f69
+model: claude-opus-5-5
+summary: og 画像（日英）・トップの title/description・ヘッダーのお問い合わせボタンを実装。check/build 通過、375px/320px でヘッダー 1 行を確認
