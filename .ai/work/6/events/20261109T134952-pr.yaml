@@ -1,0 +1,10 @@
+node: pr
+kind: run
+status: success
+outcome: ready
+to: done
+pr: 9
+artifacts:
+  - .ai/local/tmp/pr-body-6.md
+model: claude-sonnet-5-5
+summary: "PR #9 の本文を仕上げ（Minor 9 件を列挙）、Draft を解除"

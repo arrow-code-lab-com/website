@@ -2,8 +2,8 @@
 issue: 6
 pr: 9
 flow: ai-default-medium
-status: pr-running
-outcome: null
+status: pr-success
+outcome: ready
 evidence:
   spec_status: draft
   has_issue: true
@@ -14,28 +14,31 @@ evidence:
   open_major: 0
   merged: false
   accepted: false
-passed: [triage, requirements, impl, review]
+passed: [triage, requirements, impl, review, pr]
 attempts: {}
 edges:
   triage->requirements: 1
   requirements->impl: 1
   impl->review: 1
   review->pr: 1
+  pr->done: 1
 artifacts:
   triage:
     - .ai/specs/spec-20261109-132837.md
   requirements:
     - .ai/specs/spec-20261109-132837.md
     - .ai/specs/assets/spec-20261109-132837/review.html
-events: 21
+  pr:
+    - .ai/local/tmp/pr-body-6.md
+events: 22
 ---
 
 # Issue #6 の索引
 
 この索引は `events/` から機械的に生成される写しです。手で書き換えないでください（次の記録で上書きされます）。
 
-- 現在地: `pr-running`
-- フロー: `ai-default-medium` / 通過: `triage` → `requirements` → `impl` → `review`
+- 現在地: `pr-success`（outcome: ready）
+- フロー: `ai-default-medium` / 通過: `triage` → `requirements` → `impl` → `review` → `pr`
 - open な指摘: 9 件（Major 以上 0 件）
 
 ## open な指摘
@@ -55,6 +58,7 @@ events: 21
 - triage: `.ai/specs/spec-20261109-132837.md`
 - requirements: `.ai/specs/spec-20261109-132837.md`
 - requirements: `.ai/specs/assets/spec-20261109-132837/review.html`
+- pr: `.ai/local/tmp/pr-body-6.md`
 
 ## 直近の経路
 
@@ -62,6 +66,7 @@ events: 21
 - requirements → impl
 - impl → review
 - review → pr
+- pr → done
 
 ## 記録（判断・懸念・検証・環境・質問）
 
