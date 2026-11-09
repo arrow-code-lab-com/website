@@ -2,8 +2,8 @@
 issue: 6
 pr: 9
 flow: ai-default-medium
-status: requirements-success
-outcome: "案A（全ページ共通の og 画像を日英 2 枚）を採用"
+status: impl-running
+outcome: null
 evidence:
   spec_status: draft
   has_issue: true
@@ -25,14 +25,14 @@ artifacts:
   requirements:
     - .ai/specs/spec-20261109-132837.md
     - .ai/specs/assets/spec-20261109-132837/review.html
-events: 4
+events: 5
 ---
 
 # Issue #6 の索引
 
 この索引は `events/` から機械的に生成される写しです。手で書き換えないでください（次の記録で上書きされます）。
 
-- 現在地: `requirements-success`（outcome: 案A（全ページ共通の og 画像を日英 2 枚）を採用）
+- 現在地: `impl-running`
 - フロー: `ai-default-medium` / 通過: `triage` → `requirements`
 - open な指摘: 0 件（Major 以上 0 件）
 
