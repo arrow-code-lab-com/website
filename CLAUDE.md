@@ -60,6 +60,7 @@ npm run dev       # 開発サーバー（http://localhost:4321）。draft のコ
 npm run build     # dist/ に静的サイトを出力。draft のコンテンツは除外される
 npm run preview   # ビルド結果の確認
 npm run check     # 型チェック（astro check）
+npm run og        # og 画像を scripts/og/*.svg から public/og/*.png に書き出す
 ```
 
 ## ディレクトリ構成
@@ -87,6 +88,10 @@ src/
 public/
   CNAME                       # arrow-code-lab.com
   favicon.svg
+  og/{ja,en}.png              # SNS で共有したときの画像（1200×630。全ページ共通、言語で切り替え）
+scripts/
+  og/{ja,en}.svg              # og 画像の元
+  og-image.mjs                # og 画像の書き出し（npm run og）
 .github/workflows/deploy.yml  # withastro/action + actions/deploy-pages（main への push でデプロイ）
 ```
 
@@ -103,6 +108,8 @@ public/
 - アプリ: `src/content/apps/{ja,en}/room-check-pdf.md` を参考に、`ja/` と `en/` に同じファイル名で置く。`status` は `released`（公開中）/ `development`（公開予定）、並び順は `order`。ストアのリンクは `links`、アプリごとのポリシー類は `legal` に書く。開発事例として見せる使った技術は `tech`、担当範囲は `role` に書く（事実だけを書く）
 - アプリの画像: アイコンとスクリーンショットは `src/assets/apps/<slug>/`（スクリーンショットは `ja/` `en/` に分ける）に置き、frontmatter の `icon` / `screenshots` に Markdown からの相対パスで書く。ビルド時に WebP に変換・縮小される
   - RoomCheckPDF の画像は room-check-pdf リポジトリの `docs/play-store-assets` ブランチ `doc/play_store/` から持ってきたもの。ストア用の画像を撮り直したら、こちらも差し替える
+- og 画像（共有したときの画像）: 文言を変えるときは `scripts/og/{ja,en}.svg` を直して `npm run og` で書き出し、PNG を目で確かめてからコミットする。文字は実行した PC のフォントで描かれる。英語の画像には受託・相談の言葉を入れない
+- トップの title は `src/i18n/ui.ts` の `site.title`。下層ページは「{ページ名} | Arrow Code Lab」になる
 - `draft: true` のエントリは本番ビルドに含まれない（開発サーバーでは表示される）
 
 ## デプロイ・ドメイン設定

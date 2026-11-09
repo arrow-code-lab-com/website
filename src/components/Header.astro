@@ -1,5 +1,5 @@
 ---
-import { getLangFromUrl, localizePath, switchLangPath, useTranslations } from '../i18n/ui';
+import { contact, getLangFromUrl, localizePath, switchLangPath, useTranslations } from '../i18n/ui';
 import Logo from './Logo.astro';
 
 interface Props {
@@ -11,6 +11,11 @@ const t = useTranslations(lang);
 const home = localizePath('/', lang);
 const otherLang = lang === 'ja' ? 'en' : 'ja';
 const { altPath = switchLangPath(Astro.url.pathname, otherLang) } = Astro.props;
+// 英語圏からは依頼を受け付けないので、英語はフォームではなくアプリについてのメール窓口へ案内する
+const contactLink =
+  lang === 'ja'
+    ? { href: contact.formUrl, target: '_blank', rel: 'noopener' }
+    : { href: `${home}#contact` };
 ---
 
 <header class="header">
@@ -19,7 +24,7 @@ const { altPath = switchLangPath(Astro.url.pathname, otherLang) } = Astro.props;
     <nav class="header__nav" aria-label="Main">
       {lang === 'ja' && <a href={`${home}#services`} class="header__link">{t('nav.services')}</a>}
       <a href={`${home}#apps`} class="header__link">{t('nav.apps')}</a>
-      <a href={`${home}#contact`}>{t('nav.contact')}</a>
+      <a {...contactLink} class="header__cta">{t('nav.contact')}</a>
       <a href={altPath} hreflang={otherLang} lang={otherLang} class="header__lang">
         {otherLang === 'en' ? 'EN' : 'JA'}
       </a>
@@ -60,6 +65,19 @@ const { altPath = switchLangPath(Astro.url.pathname, otherLang) } = Astro.props;
   .header__nav a:hover {
     color: var(--color-accent);
   }
+  .header__nav .header__cta {
+    padding: 0.375rem 1rem;
+    border-radius: 999px;
+    background: var(--color-accent);
+    color: #fff;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: opacity 0.15s;
+  }
+  .header__nav .header__cta:hover {
+    color: #fff;
+    opacity: 0.85;
+  }
   .header__lang {
     font-family: var(--font-mono);
     font-size: 0.8125rem;
@@ -69,6 +87,20 @@ const { altPath = switchLangPath(Astro.url.pathname, otherLang) } = Astro.props;
   }
   @media (max-width: 40rem) {
     .header__link {
+      display: none;
+    }
+    .header__inner,
+    .header__nav {
+      gap: 0.5rem;
+    }
+    .header__nav .header__cta {
+      padding: 0.375rem 0.75rem;
+      font-size: 0.875rem;
+    }
+  }
+  /* 屋号の文字まで並べるとボタンが折り返す幅では、マークだけにする（リンクの aria-label で屋号は読める） */
+  @media (max-width: 22rem) {
+    .header__logo :global(.logo__text) {
       display: none;
     }
   }

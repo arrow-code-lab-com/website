@@ -1,0 +1,136 @@
+<!-- モック A（Issue #6）。画面の型 .ai/design/ui-base.html から作成 -->
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>モック A</title><style>
+:root{--color-accent:#2563eb;--color-accent-soft:#eff6ff;--color-text:#0f172a;--color-muted:#64748b;--color-border:#e2e8f0;--color-bg:#fff;--color-bg-alt:#f8fafc;--font-sans:system-ui,-apple-system,"Segoe UI","Hiragino Sans","Noto Sans JP",sans-serif;--font-mono:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;--container:64rem;--radius:.75rem}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;font-family:var(--font-sans);color:var(--color-text);background:var(--color-bg);line-height:1.8;font-size:15px}
+a{color:var(--color-accent)}
+.container{width:min(100% - 2.5rem,var(--container));margin-inline:auto}
+.header{position:sticky;top:0;z-index:10;background:rgb(255 255 255/.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--color-border)}
+.header__inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:4rem}
+.header__logo{font-weight:700;color:inherit;text-decoration:none}
+.header__logo span{color:var(--color-accent)}
+.header__nav{display:flex;align-items:center;gap:1.25rem;font-size:.9375rem}
+.header__nav a{color:inherit;text-decoration:none}
+.header__lang{font-family:var(--font-mono);font-size:.8125rem;border:1px solid var(--color-border);border-radius:999px;padding:.125rem .625rem}
+.section{padding-block:3.5rem}
+.section--alt{background:var(--color-bg-alt)}
+.section-label{font-family:var(--font-mono);font-size:.875rem;color:var(--color-accent);letter-spacing:.05em;margin:0 0 .5rem}
+.section-title{font-size:1.6rem;line-height:1.4;margin:0 0 2rem}
+.section-lead{margin:-1rem 0 2rem}
+.button{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.5rem;border-radius:999px;background:var(--color-accent);color:#fff;font-weight:600;text-decoration:none;border:0;font:inherit;cursor:pointer}
+.button--outline{background:var(--color-bg);color:var(--color-accent);box-shadow:inset 0 0 0 1px var(--color-accent)}
+.card{border:1px solid var(--color-border);border-radius:var(--radius);padding:1.5rem;background:var(--color-bg)}
+.card h3{margin:0 0 .5rem;font-size:1.125rem}.card p{margin:0}
+.grid{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr))}
+.muted{color:var(--color-muted)}
+.contact{text-align:center}
+.footer{border-top:1px solid var(--color-border);padding-block:2rem;font-size:.875rem;color:var(--color-muted)}
+.footer__inner{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem}
+.footer a{color:inherit}
+.flow{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(10rem,1fr));padding:0;margin:0 0 2rem;list-style:none;counter-reset:step}
+.flow__step{counter-increment:step;border-top:2px solid var(--color-accent);padding-top:1rem}
+.flow__step::before{content:counter(step,decimal-leading-zero);font-family:var(--font-mono);color:var(--color-accent);font-size:.875rem}
+.flow__step h3{margin:0 0 .5rem;font-size:1.0625rem}.flow__step p{margin:0}
+.notice{margin-block:2rem}
+.subhead{margin:2rem 0 .75rem;font-size:1.125rem}
+.list{margin:0;padding-left:1.25rem}
+.faq{border-top:1px solid var(--color-border)}
+.faq details{border-bottom:1px solid var(--color-border);padding:1rem 0}
+.faq summary{cursor:pointer;font-weight:600;list-style:none;display:flex;gap:.75rem}
+.faq summary::before{content:"Q";font-family:var(--font-mono);color:var(--color-accent)}
+.faq summary::after{content:"+";margin-left:auto;color:var(--color-muted)}
+.faq details[open] summary::after{content:"−"}
+.faq .faq__a{margin:.5rem 0 0 1.6rem}
+.contact__ask{max-width:32rem;margin:1.5rem auto;text-align:left}
+
+.mock-note{background:var(--color-accent-soft);border-radius:var(--radius);padding:.75rem 1rem;font-size:.875rem;margin:0 0 1.5rem}
+.tabs{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 1rem}
+.tabs button{font:inherit;font-size:.875rem;border:1px solid var(--color-border);background:var(--color-bg);border-radius:999px;padding:.25rem .875rem;cursor:pointer}
+.tabs button[aria-pressed=true]{background:var(--color-accent);border-color:var(--color-accent);color:#fff}
+.share{max-width:30rem;border:1px solid var(--color-border);border-radius:1rem;overflow:hidden;background:var(--color-bg)}
+.share__meta{padding:.75rem 1rem;font-size:.8125rem;line-height:1.5}
+.share__meta b{display:block;font-size:.9375rem;color:var(--color-text)}
+.share--small{display:flex;align-items:stretch;max-width:30rem}
+.share--small .og-icon{width:7rem;flex:none;display:grid;place-items:center;background:var(--color-bg-alt);border-right:1px solid var(--color-border)}
+.share--small .og-icon span{width:4.5rem;height:4.5rem;border-radius:1rem;background:linear-gradient(135deg,#0ea5e9,#2563eb);display:grid;place-items:center;color:#fff;font-weight:700;font-size:.8rem}
+.og{aspect-ratio:1200/630;container-type:inline-size;position:relative;background:#fff;border-bottom:1px solid var(--color-border);overflow:hidden}
+.og__bar{position:absolute;inset:0 auto 0 0;width:2.2cqw;background:var(--color-accent)}
+.og__body{position:absolute;inset:8cqw 7cqw 7cqw 9cqw;display:flex;flex-direction:column}
+.og__logo{display:flex;align-items:center;gap:1.6cqw;font-weight:700;font-size:4cqw}
+.og__mark{width:6cqw;height:6cqw;border-radius:1.4cqw;background:var(--color-accent);color:#fff;display:grid;place-items:center;font-size:4cqw}
+.og__label{font-family:var(--font-mono);color:var(--color-accent);font-size:2.6cqw;margin-top:auto}
+.og__title{font-size:6cqw;font-weight:700;line-height:1.35;margin:.6cqw 0 0}
+.og__sub{color:var(--color-muted);font-size:2.8cqw;margin-top:1.6cqw}
+.og__url{position:absolute;right:7cqw;bottom:6cqw;font-family:var(--font-mono);color:var(--color-muted);font-size:2.2cqw}
+.og__arrow{position:absolute;right:-6cqw;top:-10cqw;width:42cqw;height:42cqw;color:var(--color-accent-soft)}
+.phone{width:375px;max-width:100%;border:1px solid var(--color-border);border-radius:1.5rem;overflow:hidden;background:var(--color-bg)}
+.phone .header{position:static}
+.phone .header__inner{padding:0 1rem;width:auto}
+.phone .hero{padding:2rem 1rem;font-size:1.25rem;font-weight:700;line-height:1.5;white-space:pre-line}
+.hide-sm{display:none}
+.header__cta{background:var(--color-accent);color:#fff!important;border-radius:999px;padding:.375rem .875rem;font-weight:600;font-size:.875rem}
+.changed{outline:2px dashed #f59e0b;outline-offset:3px}
+.cols{display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(20rem,1fr));align-items:start}
+</style></head><body><header class="header"><div class="container header__inner"><a class="header__logo" href="#">→ Arrow <span>Code</span> Lab</a><nav class="header__nav"><a href="#">サービス</a><a href="#">開発事例</a><a class="header__cta" href="#">お問い合わせ</a><a class="header__lang" href="#">EN</a></nav></div></header><main><!-- mock:content:start --><section class="section"><div class="container">
+<p class="section-label">Mock</p><h2 class="section-title">案A: 全ページ共通の画像を 1 枚（日英 2 枚）</h2>
+<p class="mock-note">どのページを共有しても同じ画像が出ます。タイトル文だけがページごとに変わります。 黄色の点線が変わる所です。</p>
+<div class="cols">
+<div><h3 class="subhead" style="margin-top:0">共有したときの見え方</h3>
+<div class="tabs" data-group="page"><button type="button" aria-pressed="true" data-show="p0">トップ</button><button type="button" aria-pressed="false" data-show="p1">アプリ詳細</button><button type="button" aria-pressed="false" data-show="p2">プライバシーポリシー</button><button type="button" aria-pressed="false" data-show="p3">英語トップ</button></div>
+<div data-panel="page" id="p0"><div class="share">
+<div class="og" lang="ja">
+  <svg class="og__arrow" viewBox="0 0 32 32" aria-hidden="true"><path d="M5 16h18M16 8l8 8-8 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <div class="og__bar"></div>
+  <div class="og__body">
+    <div class="og__logo"><span class="og__mark">→</span>Arrow Code Lab</div>
+    <div class="og__label">APP DEVELOPMENT / AI</div>
+    <div class="og__title">アプリ開発・AI活用の<br>ご相談を承ります</div>
+    <div class="og__sub">業務の困りごとを、アプリとAIで解決します。</div>
+  </div>
+  <div class="og__url">arrow-code-lab.com</div>
+</div><div class="share__meta muted">arrow-code-lab.com<b>アプリ開発・AI活用のご相談｜Arrow Code Lab</b>紙やExcelで回している作業のアプリ化から、生成AIの取り入れ方のご相談まで。ご相談・お見積もりは無料です。</div></div></div>
+<div data-panel="page" id="p1" hidden><div class="share">
+<div class="og" lang="ja">
+  <svg class="og__arrow" viewBox="0 0 32 32" aria-hidden="true"><path d="M5 16h18M16 8l8 8-8 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <div class="og__bar"></div>
+  <div class="og__body">
+    <div class="og__logo"><span class="og__mark">→</span>Arrow Code Lab</div>
+    <div class="og__label">APP DEVELOPMENT / AI</div>
+    <div class="og__title">アプリ開発・AI活用の<br>ご相談を承ります</div>
+    <div class="og__sub">業務の困りごとを、アプリとAIで解決します。</div>
+  </div>
+  <div class="og__url">arrow-code-lab.com</div>
+</div><div class="share__meta muted">arrow-code-lab.com<b>RoomCheckPDF | Arrow Code Lab</b>入居時・退去時の部屋の状態を写真付きで記録し、PDF にまとめるアプリ（公開予定）。</div></div></div>
+<div data-panel="page" id="p2" hidden><div class="share">
+<div class="og" lang="ja">
+  <svg class="og__arrow" viewBox="0 0 32 32" aria-hidden="true"><path d="M5 16h18M16 8l8 8-8 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <div class="og__bar"></div>
+  <div class="og__body">
+    <div class="og__logo"><span class="og__mark">→</span>Arrow Code Lab</div>
+    <div class="og__label">APP DEVELOPMENT / AI</div>
+    <div class="og__title">アプリ開発・AI活用の<br>ご相談を承ります</div>
+    <div class="og__sub">業務の困りごとを、アプリとAIで解決します。</div>
+  </div>
+  <div class="og__url">arrow-code-lab.com</div>
+</div><div class="share__meta muted">arrow-code-lab.com<b>プライバシーポリシー | Arrow Code Lab</b>Arrow Code Lab のプライバシーポリシーです。</div></div></div>
+<div data-panel="page" id="p3" hidden><div class="share">
+<div class="og" lang="en">
+  <svg class="og__arrow" viewBox="0 0 32 32" aria-hidden="true"><path d="M5 16h18M16 8l8 8-8 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <div class="og__bar"></div>
+  <div class="og__body">
+    <div class="og__logo"><span class="og__mark">→</span>Arrow Code Lab</div>
+    <div class="og__label">APPS</div>
+    <div class="og__title">Apps for<br>everyday needs.</div>
+    <div class="og__sub">An independent developer based in Japan.</div>
+  </div>
+  <div class="og__url">arrow-code-lab.com</div>
+</div><div class="share__meta muted">arrow-code-lab.com<b>Arrow Code Lab — Apps for everyday needs</b>Arrow Code Lab is an independent developer based in Japan that builds and publishes apps.</div></div></div>
+</div>
+<div><h3 class="subhead" style="margin-top:0">スマホのヘッダー</h3>
+<div class="tabs" data-group="hdr"><button type="button" aria-pressed="false" data-show="h0">変更前</button><button type="button" aria-pressed="true" data-show="h1">変更後</button></div>
+<div data-panel="hdr" id="h0" hidden><div class="phone"><header class="header"><div class="header__inner"><a class="header__logo" href="#">→ Arrow <span>Code</span> Lab</a><nav class="header__nav"><a class="hide-sm" href="#">サービス</a><a class="hide-sm" href="#">開発事例</a><a href="#">お問い合わせ</a><a class="header__lang" href="#">EN</a></nav></div></header><div class="hero">業務の困りごとを、
+アプリとAIで解決します。</div></div></div>
+<div data-panel="hdr" id="h1"><div class="phone"><header class="header"><div class="header__inner"><a class="header__logo" href="#">→ Arrow <span>Code</span> Lab</a><nav class="header__nav"><a class="hide-sm" href="#">サービス</a><a class="hide-sm" href="#">開発事例</a><a class="header__cta changed" href="#">お問い合わせ</a><a class="header__lang" href="#">EN</a></nav></div></header><div class="hero">業務の困りごとを、
+アプリとAIで解決します。</div></div></div>
+<p class="muted" style="font-size:.875rem">PC 幅でも同じボタンの見た目にします。</p>
+</div></div></div></section><!-- mock:content:end --></main><footer class="footer"><div class="container footer__inner"><nav><a href="#">プライバシーポリシー</a>　<a href="#">特定商取引法に基づく表記</a></nav><p style="margin:0">© 2026 Arrow Code Lab</p></div></footer><script>document.querySelectorAll('.tabs').forEach(g=>g.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;g.querySelectorAll('button').forEach(x=>{x.setAttribute('aria-pressed',x===b);document.getElementById(x.dataset.show).hidden=x!==b})}))</script></body></html>
