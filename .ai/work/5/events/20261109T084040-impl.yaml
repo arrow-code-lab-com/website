@@ -1,0 +1,3 @@
+node: impl
+kind: verification
+summary: "§1-5: Notice が「こんな方に向いています」で始まり、対応の条件、最後にお受けできないご依頼の順（dist/index.html で確認）"

@@ -1,0 +1,6 @@
+node: impl
+kind: finding
+severity: Major
+state: done
+ref: 20261109T083653-review.yaml
+summary: 確認ページの 5・75 行目の絶対パスを .ai/specs/... の相対パスに置き換えた

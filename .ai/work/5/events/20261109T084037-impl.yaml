@@ -1,0 +1,6 @@
+node: impl
+kind: finding
+severity: Minor
+state: wontfix
+ref: 20261109T083910-review.yaml
+summary: "既定の三角は list-style: none と ::-webkit-details-marker で消しており、今の主なブラウザでは崩れない。古い WebKit は対象にしない"

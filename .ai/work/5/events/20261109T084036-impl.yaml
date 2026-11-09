@@ -1,0 +1,6 @@
+node: impl
+kind: finding
+severity: Minor
+state: wontfix
+ref: 20261109T083905-review.yaml
+summary: 文言は copy に直接書くのがこのページの書き方。CLAUDE.md に「条件を変えるときは Notice・FAQ・Contact も直す」と書いたので、それで運用する

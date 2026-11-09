@@ -1,0 +1,6 @@
+node: impl
+kind: finding
+severity: Minor
+state: done
+ref: 20261109T083909-review.yaml
+summary: .section-title + .notice__heading で余白を消すようにし、h3 の並び順に頼らないようにした

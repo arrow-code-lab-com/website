@@ -1,0 +1,8 @@
+node: impl
+kind: run
+status: success
+outcome: 実装完了
+to: review
+sha: bf3c8580b03edecb75dbd3515ecf830c5907a089
+model: claude-opus-5-5
+summary: "レビュー指摘を修正: 確認ページの絶対パス除去（Major）、NDA の答えの約束を削除、FAQ 飾り記号の読み上げ・字下げ・見出し余白。4 件は理由付きで wontfix"

@@ -1,0 +1,6 @@
+node: impl
+kind: finding
+severity: Minor
+state: done
+ref: 20261109T083655-review.yaml
+summary: "Q・+・− に代替テキストを空にする書き方（content: 'Q' / ''）を足した。対応しないブラウザ向けに従来の宣言を前に残した"

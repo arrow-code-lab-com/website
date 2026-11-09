@@ -1,0 +1,6 @@
+node: impl
+kind: finding
+severity: Minor
+state: done
+ref: 20261109T083654-review.yaml
+summary: NDA の答えを「はい、結べます。」だけにし、確かめていない約束を外した

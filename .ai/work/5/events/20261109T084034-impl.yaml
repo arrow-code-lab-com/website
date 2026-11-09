@@ -1,0 +1,6 @@
+node: impl
+kind: finding
+severity: Minor
+state: wontfix
+ref: 20261109T083906-review.yaml
+summary: 仕様書 §3-2 がステップと注記の両方に無料を書くよう求めているので、このままにする

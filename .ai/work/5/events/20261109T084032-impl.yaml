@@ -1,0 +1,6 @@
+node: impl
+kind: finding
+severity: Minor
+state: done
+ref: 20261109T083908-review.yaml
+summary: Q の幅を 1rem に固定し、答えの字下げ 1.75rem（1rem＋間隔 0.75rem）とそろえた

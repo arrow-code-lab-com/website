@@ -1,0 +1,6 @@
+node: impl
+kind: finding
+severity: Minor
+state: wontfix
+ref: 20261109T083907-review.yaml
+summary: 仕様書 §3-4 が 7 問の 1 つとして求めているので残す

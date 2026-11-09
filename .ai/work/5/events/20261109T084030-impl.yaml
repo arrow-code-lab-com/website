@@ -1,0 +1,6 @@
+node: impl
+kind: finding
+severity: Minor
+state: done
+ref: 20261109T083904-review.yaml
+summary: NDA の答えの後半を外したので、Contact の案内との食い違いもなくなった

@@ -1,0 +1,3 @@
+node: impl
+kind: verification
+summary: 指摘の修正後も型チェック 0 errors、本番ビルド成功。追跡物に /Users/ を含むファイルなし

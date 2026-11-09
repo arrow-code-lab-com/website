@@ -1,0 +1,3 @@
+node: impl
+kind: verification
+summary: "§1-5: Flow の「お見積もり・ご契約」に「ここまでは無料です」、注記に「ご相談・お見積もりは無料です」（dist/index.html で確認）"

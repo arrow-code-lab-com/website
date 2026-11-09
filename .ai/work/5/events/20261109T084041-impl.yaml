@@ -1,0 +1,3 @@
+node: impl
+kind: verification
+summary: "§1-5: Contact に書いてほしいこと 4 項目と「要件が固まっていなくても大丈夫です」がある（dist/index.html で確認）"

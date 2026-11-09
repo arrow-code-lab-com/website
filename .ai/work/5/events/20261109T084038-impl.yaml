@@ -1,0 +1,6 @@
+node: impl
+kind: finding
+severity: Minor
+state: done
+ref: 20261109T083656-review.yaml
+summary: §1-5 の残り 3 観点の verification を積んだ
