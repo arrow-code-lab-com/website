@@ -1,0 +1,74 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>案C モック</title><style>
+:root{--color-accent:#2563eb;--color-accent-soft:#eff6ff;--color-text:#0f172a;--color-muted:#64748b;--color-border:#e2e8f0;--color-bg:#fff;--color-bg-alt:#f8fafc;--font-sans:system-ui,-apple-system,"Segoe UI","Hiragino Sans","Noto Sans JP",sans-serif;--font-mono:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;--container:64rem;--radius:.75rem}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;font-family:var(--font-sans);color:var(--color-text);background:var(--color-bg);line-height:1.8;font-size:15px}
+a{color:var(--color-accent)}
+.container{width:min(100% - 2.5rem,var(--container));margin-inline:auto}
+.header{position:sticky;top:0;z-index:10;background:rgb(255 255 255/.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--color-border)}
+.header__inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:4rem}
+.header__logo{font-weight:700;color:inherit;text-decoration:none}
+.header__logo span{color:var(--color-accent)}
+.header__nav{display:flex;align-items:center;gap:1.25rem;font-size:.9375rem}
+.header__nav a{color:inherit;text-decoration:none}
+.header__lang{font-family:var(--font-mono);font-size:.8125rem;border:1px solid var(--color-border);border-radius:999px;padding:.125rem .625rem}
+.section{padding-block:3.5rem}
+.section--alt{background:var(--color-bg-alt)}
+.section-label{font-family:var(--font-mono);font-size:.875rem;color:var(--color-accent);letter-spacing:.05em;margin:0 0 .5rem}
+.section-title{font-size:1.6rem;line-height:1.4;margin:0 0 2rem}
+.section-lead{margin:-1rem 0 2rem}
+.button{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.5rem;border-radius:999px;background:var(--color-accent);color:#fff;font-weight:600;text-decoration:none;border:0;font:inherit;cursor:pointer}
+.button--outline{background:var(--color-bg);color:var(--color-accent);box-shadow:inset 0 0 0 1px var(--color-accent)}
+.card{border:1px solid var(--color-border);border-radius:var(--radius);padding:1.5rem;background:var(--color-bg)}
+.card h3{margin:0 0 .5rem;font-size:1.125rem}.card p{margin:0}
+.grid{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr))}
+.muted{color:var(--color-muted)}
+.contact{text-align:center}
+.footer{border-top:1px solid var(--color-border);padding-block:2rem;font-size:.875rem;color:var(--color-muted)}
+.footer__inner{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem}
+.footer a{color:inherit}
+.flow{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(10rem,1fr));padding:0;margin:0 0 2rem;list-style:none;counter-reset:step}
+.flow__step{counter-increment:step;border-top:2px solid var(--color-accent);padding-top:1rem}
+.flow__step::before{content:counter(step,decimal-leading-zero);font-family:var(--font-mono);color:var(--color-accent);font-size:.875rem}
+.flow__step h3{margin:0 0 .5rem;font-size:1.0625rem}.flow__step p{margin:0}
+.notice{margin-block:2rem}
+.subhead{margin:2rem 0 .75rem;font-size:1.125rem}
+.list{margin:0;padding-left:1.25rem}
+.faq{border-top:1px solid var(--color-border)}
+.faq details{border-bottom:1px solid var(--color-border);padding:1rem 0}
+.faq summary{cursor:pointer;font-weight:600;list-style:none;display:flex;gap:.75rem}
+.faq summary::before{content:"Q";font-family:var(--font-mono);color:var(--color-accent)}
+.faq summary::after{content:"+";margin-left:auto;color:var(--color-muted)}
+.faq details[open] summary::after{content:"−"}
+.faq .faq__a{margin:.5rem 0 0 1.6rem}
+.contact__ask{max-width:32rem;margin:1.5rem auto;text-align:left}
+
+.mockbar{position:sticky;top:0;z-index:20;display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;padding:.5rem 1rem;background:#0f172a;color:#fff;font-size:13px}
+.mockbar button{font:inherit;padding:.25rem .875rem;border-radius:999px;border:1px solid #475569;background:transparent;color:#fff;cursor:pointer}
+.mockbar button[aria-pressed=true]{background:#fff;color:#0f172a}
+.mockbar .order{margin-left:auto;display:flex;flex-wrap:wrap;gap:.25rem;align-items:center}
+.mockbar .order span{padding:0 .5rem;border-radius:4px;background:#334155;font-family:var(--font-mono);font-size:12px}
+.mockbar .order span.changed{background:#f59e0b;color:#0f172a}
+.mockbar .order i{color:#64748b;font-style:normal}
+.skip{padding:1rem 0;text-align:center;color:var(--color-muted);background:repeating-linear-gradient(45deg,#f8fafc,#f8fafc 8px,#f1f5f9 8px,#f1f5f9 16px);font-size:13px}
+.view[hidden]{display:none}
+.changed-block{outline:2px dashed #f59e0b;outline-offset:6px;border-radius:4px;position:relative}
+.changed-block::after{content:"変更";position:absolute;top:-.9rem;right:-.4rem;background:#f59e0b;color:#0f172a;font-size:11px;font-weight:700;padding:0 .4rem;border-radius:4px}
+</style></head><body><div class="mockbar"><strong>案C</strong><button type="button" data-v="before" aria-pressed="false">変更前</button><button type="button" data-v="after" aria-pressed="true">変更後</button>
+<div class="order" data-o="before" hidden><span class="">Hero</span><i>→</i><span class="">Services</span><i>→</i><span class="">Apps</span><i>→</i><span class="">About</span><i>→</i><span class="">Flow</span><i>→</i><span class="">Notice</span><i>→</i><span class="">Contact</span></div><div class="order" data-o="after"><span class="">Hero</span><i>→</i><span class="">Services</span><i>→</i><span class="">Apps</span><i>→</i><span class="">About</span><i>→</i><span class="changed">Notice</span><i>→</i><span class="changed">FAQ</span><i>→</i><span class="changed">Flow</span><i>→</i><span class="changed">Contact</span></div></div><header class="header"><div class="container header__inner"><a class="header__logo" href="#">→ Arrow <span>Code</span> Lab</a><nav class="header__nav"><a href="#services">サービス</a><a href="#apps">開発事例</a><a href="#contact">お問い合わせ</a><a class="header__lang" href="#">EN</a></nav></div></header><div class="view" data-v="before" hidden><div class="skip">Hero ・ Services ・ Apps ・ About …（変更なし）</div><section id="flow" class="section"><div class="container"><p class="section-label">Flow</p><h2 class="section-title">ご依頼の流れ</h2><ol class="flow">
+<li class="flow__step"><h3>お問い合わせ</h3><p class="muted">フォームまたはメールでご連絡ください。</p></li>
+<li class="flow__step"><h3>ヒアリング</h3><p class="muted">実現したいことや課題をお伺いします。</p></li>
+<li class="flow__step"><h3>お見積もり・ご契約</h3><p class="muted">内容に応じて個別にお見積もりします。</p></li>
+<li class="flow__step"><h3>開発・ご相談対応</h3><p class="muted">進捗を共有しながら進めます。</p></li>
+<li class="flow__step"><h3>納品・サポート</h3><p class="muted">納品後の運用についてもご相談ください。</p></li></ol><p>料金は内容に応じて個別にお見積もりします。まずはお気軽にご相談ください。</p></div></section><section id="notice" class="section section--alt"><div class="container"><p class="section-label">Notice</p><h2 class="section-title">ご依頼の前に</h2><p>Arrow Code Lab は副業として運営しています。対応できる時間に限りがあるため、以下をご理解いただいたうえでご相談ください。</p><div class="grid notice">
+<div class="card"><h3>対応時間</h3><p class="muted">作業やご連絡への対応は、平日の夜と土日祝日に行います。</p></div>
+<div class="card"><h3>ご返信の目安</h3><p class="muted">お問い合わせには、3日以内にご返信します。</p></div>
+<div class="card"><h3>打ち合わせ</h3><p class="muted">メールやチャットでのやり取りを基本とします。オンラインでの打ち合わせは、平日の夜または土日祝日に調整させてください。</p></div></div><h3 class="subhead">お受けできないご依頼</h3><ul class="list"><li>平日日中の定例会議への参加や、常駐が必要なご依頼</li><li>納期が短いご依頼や、大規模な開発案件</li><li>24時間の障害対応や、即時の対応が必要な保守</li><li>医療ソフトウェアに関するご依頼（本業と競合するため）</li></ul></div></section><section id="contact" class="section"><div class="container contact"><p class="section-label">Contact</p><h2 class="section-title">お問い合わせ</h2><p>アプリ開発のご依頼、AI活用のご相談、アプリに関するお問い合わせは、フォームまたはメールでご連絡ください。3日以内にご返信します。</p><p><a class="button" href="#">お問い合わせフォーム →</a></p><p class="muted">Email: <a href="#">arrow.code.lab@gmail.com</a></p></div></section></div><div class="view" data-v="after"><div class="skip">Hero ・ Services ・ Apps ・ About …（変更なし）</div><section id="notice" class="section"><div class="container"><p class="section-label">Notice</p><h2 class="section-title">ご依頼の前に</h2><div class="changed-block"><h3 class="subhead" style="margin-top:0">こんな方に向いています</h3><ul class="list">
+<li>要件がまだ固まっていない段階から、相談しながら進めたい方</li><li>小さく始めたい方、まずは相談だけしてみたい方</li><li>メールやチャットでのやり取りで進めたい方</li><li>納期に余裕をもって進められる方</li></ul></div><h3 class="subhead">対応の条件</h3><p>Arrow Code Lab は副業として運営しています。対応できる時間に限りがあるため、次の条件で承ります。</p><div class="grid notice">
+<div class="card"><h3>対応時間</h3><p class="muted">作業やご連絡への対応は、平日の夜と土日祝日に行います。</p></div>
+<div class="card"><h3>ご返信の目安</h3><p class="muted">お問い合わせには、3日以内にご返信します。</p></div>
+<div class="card"><h3>打ち合わせ</h3><p class="muted">メールやチャットでのやり取りを基本とします。オンラインでの打ち合わせは、平日の夜または土日祝日に調整させてください。</p></div></div><h3 class="subhead">お受けできないご依頼</h3><ul class="list"><li>平日日中の定例会議への参加や、常駐が必要なご依頼</li><li>納期が短いご依頼や、大規模な開発案件</li><li>24時間の障害対応や、即時の対応が必要な保守</li><li>医療ソフトウェアに関するご依頼（本業と競合するため）</li></ul></div></section><section id="faq" class="section section--alt"><div class="container"><p class="section-label">FAQ</p><h2 class="section-title">よくあるご質問</h2><div class="changed-block"><div class="faq"><details open><summary>小さな依頼や、相談だけでもかまいませんか？</summary><div class="muted faq__a">はい。ちょっとしたツールの作成や、お話を伺うだけのご相談も承ります。ご相談・お見積もりは無料です。</div></details><details><summary>秘密保持契約（NDA）は結べますか？</summary><div class="muted faq__a">はい、結べます。ご相談の内容をお伺いする前に結ぶこともできます。</div></details><details><summary>成果物の権利は譲渡してもらえますか？</summary><div class="muted faq__a">はい、譲渡できます。譲渡の範囲は契約の際に取り決めます。</div></details><details><summary>契約書は交わしますか？</summary><div class="muted faq__a">はい。作業の範囲や納期、お支払いの条件を、着手の前に書面で取り決めます。</div></details><details><summary>支払い方法を教えてください。</summary><div class="muted faq__a">銀行振込でお願いしています。お支払いの期日は、お見積書または契約書に定めます。</div></details><details><summary>遠方でも依頼できますか？</summary><div class="muted faq__a">はい。メールやチャット、オンラインでの打ち合わせで進めるため、全国からご依頼いただけます。</div></details><details><summary>納品後の修正や保守もお願いできますか？</summary><div class="muted faq__a">はい、ご相談ください。対応時間（平日の夜と土日祝日）の中で順次対応します。24時間の障害対応や即時の対応はお受けしていません。</div></details></div></div></div></section><section id="flow" class="section"><div class="container"><p class="section-label">Flow</p><h2 class="section-title">ご依頼の流れ</h2><div class="changed-block"><ol class="flow">
+<li class="flow__step"><h3>お問い合わせ</h3><p class="muted">フォームまたはメールでご連絡ください。</p></li>
+<li class="flow__step"><h3>ヒアリング</h3><p class="muted">実現したいことや課題をお伺いします。</p></li>
+<li class="flow__step"><h3>お見積もり・ご契約</h3><p class="muted">内容に応じて個別にお見積もりします。<br>ここまでは無料です。</p></li>
+<li class="flow__step"><h3>開発・ご相談対応</h3><p class="muted">進捗を共有しながら進めます。</p></li>
+<li class="flow__step"><h3>納品・サポート</h3><p class="muted">納品後の運用についてもご相談ください。</p></li></ol><p><strong>ご相談・お見積もりは無料です。</strong>料金は内容に応じて個別にお見積もりします。</p></div></div></section><section id="contact" class="section section--alt"><div class="container contact"><p class="section-label">Contact</p><h2 class="section-title">お問い合わせ</h2><p>アプリ開発のご依頼、AI活用のご相談、アプリに関するお問い合わせは、フォームまたはメールでご連絡ください。3日以内にご返信します。</p><div class="changed-block"><div class="contact__ask"><p style="margin:0 0 .25rem"><strong>わかる範囲で、次のことをお書きください。</strong></p><ul class="list"><li>やりたいこと・困っていること</li><li>今のやり方（紙・Excel・使っているツールなど）</li><li>希望の時期</li><li>ご予算の目安（未定でもかまいません）</li></ul><p class="muted" style="margin:.5rem 0 0">要件が固まっていなくても大丈夫です。お話を伺いながら一緒に整理します。</p></div></div><p><a class="button" href="#">お問い合わせフォーム →</a></p><p class="muted">Email: <a href="#">arrow.code.lab@gmail.com</a></p></div></section></div><footer class="footer"><div class="container footer__inner"><nav><a href="#">プライバシーポリシー</a>　<a href="#">特定商取引法に基づく表記</a></nav><p style="margin:0">© 2026 Arrow Code Lab</p></div></footer><script>document.querySelectorAll('.mockbar button').forEach(function(b){b.addEventListener('click',function(){var v=b.dataset.v;document.querySelectorAll('.mockbar button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});document.querySelectorAll('.view').forEach(function(x){x.hidden=x.dataset.v!==v});document.querySelectorAll('.order').forEach(function(x){x.hidden=x.dataset.o!==v});scrollTo(0,0)})});</script></body></html>

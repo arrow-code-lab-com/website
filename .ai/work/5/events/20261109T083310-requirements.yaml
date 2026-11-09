@@ -1,0 +1,11 @@
+node: requirements
+kind: run
+status: success
+outcome: 案A（FAQ を問い合わせの直前に置く）
+to: impl
+sha: 94e1030b739f208bd1a1995a4bc6a0b8a171a197
+artifacts:
+  - .ai/specs/spec-20261108-155914.md
+  - .ai/specs/assets/spec-20261108-155914/review.html
+model: claude-opus-5-5
+summary: 案A を採用し spec-20261108-155914 を仕上げて push（まだ検証されていない）。メニューは変えない・FAQ は開閉式・向いている方 4 項目
