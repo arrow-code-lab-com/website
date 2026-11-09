@@ -74,8 +74,16 @@ const copy = {
     'やり取りはメールやチャットが基本です。進捗を共有しながら進めます。',
   ],
   noticeTitle: 'ご依頼の前に',
+  noticeSuitedTitle: 'こんな方に向いています',
+  noticeSuited: [
+    '要件がまだ固まっていない段階から、相談しながら進めたい方',
+    '小さく始めたい方、まずは相談だけしてみたい方',
+    'メールやチャットでのやり取りで進めたい方',
+    '納期に余裕をもって進められる方',
+  ],
+  noticeConditionsTitle: '対応の条件',
   noticeLead:
-    'Arrow Code Lab は副業として運営しています。対応できる時間に限りがあるため、以下をご理解いただいたうえでご相談ください。',
+    'Arrow Code Lab は副業として運営しています。対応できる時間に限りがあるため、次の条件で承ります。',
   noticeItems: [
     { title: '対応時間', body: '作業やご連絡への対応は、平日の夜と土日祝日に行います。' },
     { title: 'ご返信の目安', body: 'お問い合わせには、3日以内にご返信します。' },
@@ -95,14 +103,56 @@ const copy = {
   flow: [
     { title: 'お問い合わせ', body: 'フォームまたはメールでご連絡ください。' },
     { title: 'ヒアリング', body: '実現したいことや課題をお伺いします。' },
-    { title: 'お見積もり・ご契約', body: '内容に応じて個別にお見積もりします。' },
+    { title: 'お見積もり・ご契約', body: '内容に応じて個別にお見積もりします。ここまでは無料です。' },
     { title: '開発・ご相談対応', body: '進捗を共有しながら進めます。' },
     { title: '納品・サポート', body: '納品後の運用についてもご相談ください。' },
   ],
-  flowNote: '料金は内容に応じて個別にお見積もりします。まずはお気軽にご相談ください。',
+  flowNote: 'ご相談・お見積もりは無料です。料金は内容に応じて個別にお見積もりします。',
+  faqTitle: 'よくあるご質問',
+  faq: [
+    {
+      question: '小さな依頼や、相談だけでもかまいませんか？',
+      answer:
+        'はい。ちょっとしたツールの作成や、お話を伺うだけのご相談も承ります。ご相談・お見積もりは無料です。',
+    },
+    {
+      question: '秘密保持契約（NDA）は結べますか？',
+      answer: 'はい、結べます。ご相談の内容をお伺いする前に結ぶこともできます。',
+    },
+    {
+      question: '成果物の権利は譲渡してもらえますか？',
+      answer: 'はい、譲渡できます。譲渡の範囲は契約の際に取り決めます。',
+    },
+    {
+      question: '契約書は交わしますか？',
+      answer: 'はい。作業の範囲や納期、お支払いの条件を、着手の前に書面で取り決めます。',
+    },
+    {
+      question: '支払い方法を教えてください。',
+      answer: '銀行振込でお願いしています。お支払いの期日は、お見積書または契約書に定めます。',
+    },
+    {
+      question: '遠方でも依頼できますか？',
+      answer:
+        'はい。メールやチャット、オンラインでの打ち合わせで進めるため、全国からご依頼いただけます。',
+    },
+    {
+      question: '納品後の修正や保守もお願いできますか？',
+      answer:
+        'はい、ご相談ください。対応時間（平日の夜と土日祝日）の中で順次対応します。24時間の障害対応や、即時の対応はお受けしていません。',
+    },
+  ],
   contactTitle: 'お問い合わせ',
   contactBody:
     'アプリ開発のご依頼、AI活用のご相談、アプリに関するお問い合わせは、フォームまたはメールでご連絡ください。3日以内にご返信します。',
+  contactAskTitle: 'わかる範囲で、次のことをお書きください。',
+  contactAsk: [
+    'やりたいこと・困っていること',
+    '今のやり方（紙・Excel・使っているツールなど）',
+    '希望の時期',
+    'ご予算の目安（未定でもかまいません）',
+  ],
+  contactAskNote: '要件が固まっていなくても大丈夫です。お話を伺いながら一緒に整理します。',
   contactForm: 'お問い合わせフォーム',
 };
 ---
@@ -200,29 +250,58 @@ const copy = {
     <div class="container">
       <p class="section-label">Notice</p>
       <h2 class="section-title">{copy.noticeTitle}</h2>
+      <h3 class="notice__heading">{copy.noticeSuitedTitle}</h3>
+      <ul class="notice__list">
+        {copy.noticeSuited.map((item) => <li>{item}</li>)}
+      </ul>
+      <h3 class="notice__heading">{copy.noticeConditionsTitle}</h3>
       <p>{copy.noticeLead}</p>
       <div class="grid notice">
         {
           copy.noticeItems.map((item) => (
             <div class="card">
-              <h3>{item.title}</h3>
+              <h4>{item.title}</h4>
               <p class="muted">{item.body}</p>
             </div>
           ))
         }
       </div>
-      <h3 class="notice__decline-title">{copy.noticeDeclineTitle}</h3>
-      <ul class="notice__decline">
+      <h3 class="notice__heading">{copy.noticeDeclineTitle}</h3>
+      <ul class="notice__list">
         {copy.noticeDecline.map((item) => <li>{item}</li>)}
       </ul>
     </div>
   </section>
 
-  <section id="contact" class="section">
+  <section id="faq" class="section">
+    <div class="container">
+      <p class="section-label">FAQ</p>
+      <h2 class="section-title">{copy.faqTitle}</h2>
+      <div class="faq">
+        {
+          copy.faq.map((item) => (
+            <details class="faq__item">
+              <summary>{item.question}</summary>
+              <p class="muted">{item.answer}</p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section section--alt">
     <div class="container contact">
       <p class="section-label">Contact</p>
       <h2 class="section-title">{copy.contactTitle}</h2>
       <p>{copy.contactBody}</p>
+      <div class="contact__ask">
+        <p class="contact__ask-title">{copy.contactAskTitle}</p>
+        <ul>
+          {copy.contactAsk.map((item) => <li>{item}</li>)}
+        </ul>
+        <p class="muted">{copy.contactAskNote}</p>
+      </div>
       <p>
         <a href={contact.formUrl} class="button" target="_blank" rel="noopener">{copy.contactForm} →</a>
       </p>
@@ -289,14 +368,66 @@ const copy = {
     padding-left: 1.25rem;
   }
   .notice {
-    margin-block: 2rem;
+    margin-block: 1.5rem 0;
   }
-  .notice__decline-title {
-    margin: 0 0 0.75rem;
+  .notice__heading {
+    margin: 2.5rem 0 0.75rem;
     font-size: 1.125rem;
   }
-  .notice__decline {
+  .notice__heading:first-of-type {
+    margin-top: 0;
+  }
+  .notice__list {
     margin: 0;
     padding-left: 1.25rem;
+  }
+  .faq {
+    border-top: 1px solid var(--color-border);
+  }
+  .faq__item {
+    border-bottom: 1px solid var(--color-border);
+  }
+  .faq__item summary {
+    display: flex;
+    gap: 0.75rem;
+    padding: 1rem 0;
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+  }
+  .faq__item summary::-webkit-details-marker {
+    display: none;
+  }
+  .faq__item summary::before {
+    content: 'Q';
+    font-family: var(--font-mono);
+    color: var(--color-accent);
+  }
+  .faq__item summary::after {
+    content: '+';
+    margin-left: auto;
+    color: var(--color-muted);
+  }
+  .faq__item[open] summary::after {
+    content: '−';
+  }
+  .faq__item p {
+    margin: 0 0 1rem 1.75rem;
+  }
+  /* 箇条書きは左揃えのまま、ブロックだけを中央に置く */
+  .contact__ask {
+    max-width: 32rem;
+    margin: 2rem auto;
+    text-align: left;
+  }
+  .contact__ask ul {
+    margin: 0.25rem 0 0.75rem;
+    padding-left: 1.25rem;
+  }
+  .contact__ask p {
+    margin: 0;
+  }
+  .contact__ask .contact__ask-title {
+    font-weight: 600;
   }
 </style>
