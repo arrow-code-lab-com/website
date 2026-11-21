@@ -42,8 +42,10 @@ Floor estimates and fee estimates are approximate. Please also check the signs a
 
 ## Your data
 
-Your records and photos stay on your device only and are never sent to our servers. No account needed. Even without a signal underground, your photos and level notes are still there.
+Your records and photos are stored on your device and are currently not sent to our servers. No account needed. Even without a signal underground, your photos and level notes are still there.
+
+In the future, we may add features that use cloud AI to read signs more accurately. If we do, we'll describe what is sent in the privacy policy and let you choose whether to use them.
 
 ## Pricing
 
-Free to use with ads. The ad-free version (one-time purchase) removes ads, shows your full history, and lets you keep photos longer than 7 days, up to forever.
+Free to use with ads. The ad-free version (one-time purchase) removes ads, shows your full history, lets you add more than 3 favorites, and lets you keep photos longer than 7 days, up to forever.
