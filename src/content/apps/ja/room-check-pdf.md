@@ -22,7 +22,7 @@ legal:
   privacy: https://arrow-code-lab.github.io/room-check-pdf-policy/
   terms: https://arrow-code-lab.github.io/room-check-pdf-policy/terms.html
   tokushoho: https://arrow-code-lab.github.io/room-check-pdf-policy/legal.html
-order: 1
+order: 2
 ---
 
 Google Play で公開予定です。

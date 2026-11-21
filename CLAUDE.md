@@ -30,7 +30,7 @@
 | デザイン | ミニマル・テック系（白基調＋アクセントカラー1色）。屋号にちなんで矢印モチーフを使ってもよい |
 | 代表者情報 | **屋号のみ公開。個人名は載せない**。経歴はスキル・技術中心に紹介する |
 | 料金 | **個別見積もりのみ**。金額は載せない |
-| 問い合わせ | Googleフォーム（https://forms.gle/yS23XXq7SoenTrnE9）、メール arrow.code.lab@gmail.com。GitHub Pagesでは自前のフォーム処理ができないためGoogleフォームを使う |
+| 問い合わせ | Googleフォーム（https://forms.gle/yS23XXq7SoenTrnE9）、メール info@arrow-code-lab.com。GitHub Pagesでは自前のフォーム処理ができないためGoogleフォームを使う |
 
 ## 初回公開の範囲
 
