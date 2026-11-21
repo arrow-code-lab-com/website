@@ -47,7 +47,7 @@ Arrow Code Lab（以下「当事業」）は、お客様の個人情報を適切
 ## お問い合わせ窓口
 
 Arrow Code Lab
-メールアドレス: arrow.code.lab@gmail.com
+メールアドレス: info@arrow-code-lab.com
 
 ## 改定
 

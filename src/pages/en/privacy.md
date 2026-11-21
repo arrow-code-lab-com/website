@@ -40,7 +40,7 @@ If you request disclosure, correction, or deletion of your personal information,
 ## Contact
 
 Arrow Code Lab
-Email: arrow.code.lab@gmail.com
+Email: info@arrow-code-lab.com
 
 ## Changes to this policy
 

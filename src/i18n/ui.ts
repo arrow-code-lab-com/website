@@ -9,7 +9,7 @@ export const defaultLang: Lang = 'ja';
 
 export const contact = {
   formUrl: 'https://forms.gle/yS23XXq7SoenTrnE9',
-  email: 'arrow.code.lab@gmail.com',
+  email: 'info@arrow-code-lab.com',
 };
 
 export const ui = {
