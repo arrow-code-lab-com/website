@@ -120,6 +120,7 @@ scripts/
   - `www`: CNAME で `<GitHubユーザー名>.github.io`
 - Settings → Pages で Custom domain を設定し、「Enforce HTTPS」を有効にする
 - ドメイン乗っ取りを防ぐため、GitHub のアカウント設定でドメインの所有確認（Verified domains）をしておく
+- `public/app-ads.txt` は AdMob 用。全アプリで共通の 1 ファイル（同じ AdMob アカウントならこの 1 行で足りる）。ほかの広告ネットワークを使うアプリを足したら行を追加する。各アプリのストアの「開発者のウェブサイト」は `https://arrow-code-lab.com/` にする
 
 ## コンテンツ作成時のルール
 
