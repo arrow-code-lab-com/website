@@ -11,6 +11,7 @@ screenshots:
   - { src: ../../../assets/apps/which-level/en/05_history.png, caption: History and favorites }
 status: released
 platforms: [Android]
+plannedPlatforms: [iOS]
 tech: [Flutter, Dart, SQLite, ML Kit (text recognition), Google Maps, Barometer and compass sensors, In-app purchases, AdMob]
 role: Planned, designed and built by a single developer
 links:

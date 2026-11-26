@@ -31,6 +31,10 @@ export const ui = {
     'apps.tech': '使った技術',
     'apps.role': '担当',
     'apps.back': 'トップへ戻る',
+    'apps.download': 'ダウンロード',
+    'apps.download.lead': 'スマートフォンのカメラで QR コードを読み取ると、ストアのページが開きます。',
+    'apps.download.open': '{store} で開く',
+    'apps.download.planned': '準備中',
   },
   en: {
     'site.title': 'Arrow Code Lab — Apps for everyday needs',
@@ -50,6 +54,10 @@ export const ui = {
     'apps.tech': 'Built with',
     'apps.role': 'Role',
     'apps.back': 'Back to home',
+    'apps.download': 'Download',
+    'apps.download.lead': 'Scan the QR code with your phone camera to open the store page.',
+    'apps.download.open': 'Open in {store}',
+    'apps.download.planned': 'Coming soon',
   },
 } as const;
 

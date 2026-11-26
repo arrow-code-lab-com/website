@@ -13,6 +13,8 @@ const apps = defineCollection({
     screenshots: z.array(z.object({ src: image(), caption: z.string() })).default([]),
     status: z.enum(['released', 'development']),
     platforms: z.array(z.string()).default([]),
+    // 準備中の対応 OS（例: [iOS]）。詳細ページのダウンロード欄に「準備中」と出す
+    plannedPlatforms: z.array(z.string()).default([]),
     // 開発事例として見せるための情報（使った技術と、誰がどこまで担当したか）
     tech: z.array(z.string()).default([]),
     role: z.string().optional(),

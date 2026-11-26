@@ -105,7 +105,7 @@ scripts/
 
 ## コンテンツの追加
 
-- アプリ: `src/content/apps/{ja,en}/room-check-pdf.md` を参考に、`ja/` と `en/` に同じファイル名で置く。`status` は `released`（公開中）/ `development`（公開予定）、並び順は `order`。ストアのリンクは `links`、アプリごとのポリシー類は `legal` に書く。開発事例として見せる使った技術は `tech`、担当範囲は `role` に書く（事実だけを書く）
+- アプリ: `src/content/apps/{ja,en}/room-check-pdf.md` を参考に、`ja/` と `en/` に同じファイル名で置く。`status` は `released`（公開中）/ `development`（公開予定）、並び順は `order`。ストアのリンクは `links`（Google Play / App Store のリンクは詳細ページに QR コード付きで出る。準備中の OS は `plannedPlatforms` に書くと「準備中」と出る）、アプリごとのポリシー類は `legal` に書く。開発事例として見せる使った技術は `tech`、担当範囲は `role` に書く（事実だけを書く）
 - アプリの画像: アイコンとスクリーンショットは `src/assets/apps/<slug>/`（スクリーンショットは `ja/` `en/` に分ける）に置き、frontmatter の `icon` / `screenshots` に Markdown からの相対パスで書く。ビルド時に WebP に変換・縮小される
   - RoomCheckPDF の画像は room-check-pdf リポジトリの `docs/play-store-assets` ブランチ `doc/play_store/` から持ってきたもの。ストア用の画像を撮り直したら、こちらも差し替える
 - og 画像（共有したときの画像）: 文言を変えるときは `scripts/og/{ja,en}.svg` を直して `npm run og` で書き出し、PNG を目で確かめてからコミットする。文字は実行した PC のフォントで描かれる。英語の画像には受託・相談の言葉を入れない
