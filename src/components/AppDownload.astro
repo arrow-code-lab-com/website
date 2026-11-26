@@ -1,0 +1,124 @@
+---
+// アプリ詳細のダウンロード欄。PC で見ている人がスマホで開けるよう、ストアの URL と QR コードを並べる
+import QRCode from 'qrcode';
+import { useTranslations, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  links: { googlePlay?: string; appStore?: string };
+  plannedPlatforms: string[];
+}
+
+const { lang, links, plannedPlatforms } = Astro.props;
+const t = useTranslations(lang);
+
+const stores = [
+  { platform: 'Android', store: 'Google Play', href: links.googlePlay },
+  { platform: 'iOS', store: 'App Store', href: links.appStore },
+];
+// QR コードはビルド時に SVG で埋め込む（外部サービスに URL を送らない）
+const available = await Promise.all(
+  stores
+    .filter((item) => item.href)
+    .map(async (item) => ({
+      ...item,
+      href: item.href!,
+      qr: await QRCode.toString(item.href!, { type: 'svg', margin: 0, errorCorrectionLevel: 'M' }),
+    })),
+);
+const storeName = (item: { platform: string; store: string }) =>
+  lang === 'ja' ? `${item.platform}（${item.store}）` : `${item.platform} (${item.store})`;
+const planned = stores.filter((item) => !item.href && plannedPlatforms.includes(item.platform));
+---
+
+{
+  (available.length > 0 || planned.length > 0) && (
+    <section class="download" aria-labelledby="download-title">
+      <h2 id="download-title">{t('apps.download')}</h2>
+      <p class="muted">{t('apps.download.lead')}</p>
+      <ul class="stores">
+        {available.map((item) => (
+          <li class="store">
+            <p class="store-name">{storeName(item)}</p>
+            <div class="qr" role="img" aria-label={`${item.store} QR`} set:html={item.qr} />
+            <a href={item.href} class="button" target="_blank" rel="noopener">
+              {t('apps.download.open').replace('{store}', item.store)}
+            </a>
+            <p class="url">
+              <a href={item.href} target="_blank" rel="noopener">
+                {item.href}
+              </a>
+            </p>
+          </li>
+        ))}
+        {planned.map((item) => (
+          <li class="store store--planned">
+            <p class="store-name">{storeName(item)}</p>
+            <p class="planned">{t('apps.download.planned')}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )
+}
+
+<style>
+  .download {
+    margin: 2rem 0;
+  }
+  .download h2 {
+    margin: 0 0 0.25rem;
+    font-size: 1.125rem;
+  }
+  .download > p {
+    margin: 0 0 1rem;
+    font-size: 0.875rem;
+  }
+  .stores {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .store {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.25rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    text-align: center;
+  }
+  .store--planned {
+    justify-content: center;
+    background: var(--color-bg-alt);
+  }
+  .store-name {
+    margin: 0;
+    font-weight: 600;
+  }
+  .qr {
+    width: 8.5rem;
+    padding: 0.5rem;
+    background: #fff;
+    border-radius: 0.25rem;
+  }
+  .qr :global(svg) {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .url {
+    margin: 0;
+    font-size: 0.75rem;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+  }
+  .planned {
+    margin: 0;
+    color: var(--color-muted);
+  }
+</style>

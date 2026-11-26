@@ -13,6 +13,7 @@ screenshots:
   - { src: ../../../assets/apps/which-level/ja/07_history.png, caption: 履歴とお気に入り }
 status: released # released（公開中） / development（公開予定）
 platforms: [Android]
+plannedPlatforms: [iOS]
 tech: [Flutter, Dart, SQLite, ML Kit（文字認識）, Google Maps, 気圧・方位センサー, アプリ内課金, AdMob]
 role: 企画・設計・開発を 1 人で担当
 links:
