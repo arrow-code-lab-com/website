@@ -9,11 +9,12 @@ screenshots:
   - { src: ../../../assets/apps/which-level/en/04_findMap.png, caption: See your car on the map }
   - { src: ../../../assets/apps/which-level/en/06_autoRecord.png, caption: Saved when your car's Bluetooth disconnects }
   - { src: ../../../assets/apps/which-level/en/05_history.png, caption: History and favorites }
-status: development
-platforms: [Android, iOS]
+status: released
+platforms: [Android]
 tech: [Flutter, Dart, SQLite, ML Kit (text recognition), Google Maps, Barometer and compass sensors, In-app purchases, AdMob]
-role: Planned, designed and built by a single developer (coming soon)
-links: {}
+role: Planned, designed and built by a single developer
+links:
+  googlePlay: https://play.google.com/store/apps/details?id=com.arrowcodelab.whichlevel
 legal:
   privacy: https://which-level.arrow-code-lab.com/
   terms: https://which-level.arrow-code-lab.com/terms.html
@@ -21,7 +22,7 @@ legal:
 order: 1
 ---
 
-Coming soon.
+Available on Google Play. The iOS version is coming soon.
 
 ## Who it's for
 
